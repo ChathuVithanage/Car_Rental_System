@@ -1,4 +1,4 @@
-package asvisor;
+package advisor;
 
 import util.ResponseUtil;
 import org.springframework.http.HttpStatus;
