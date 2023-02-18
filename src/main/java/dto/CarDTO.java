@@ -1,21 +1,17 @@
-package entity;
+package dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Lob;
 
-@Entity
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 @ToString
-public class Cars {
-    @Id
+public class CarDTO {
     private String vehicleNo;
     private String type;
     private int passengers;
@@ -30,5 +26,4 @@ public class Cars {
     private Double priceForExtraKm;
     private String transmissionType;
     private String FuelType;
-
 }
