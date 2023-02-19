@@ -1,0 +1,29 @@
+.header {
+    text-align: right;
+}
+.dropdown-menu h1{
+    font-size: 5px;
+}
+.header .sticky-top{
+    color: darkseagreen;
+}
+.topic h5{
+    color: white;
+}
+.home-text{
+    z-index: 1000;
+    top: 28%;
+}
+.home-text .text{
+    font-size: 75px;
+    color: white;
+}
+
+.btn {
+    width: 400px; !important;
+}
+
+.phone{
+    position: absolute;
+    top: 15%;
+}

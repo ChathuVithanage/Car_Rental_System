@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Customer Register</title>
+  <link href="styleSheet.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link href="index.css" rel="stylesheet">
+  <style>
+    #customer_Registration{
+      background-image: url("assest/lukas-blazek-EWDvHNNfUmQ-unsplash.jpg");
+      width: 1536px;
+      height: 712px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 78%;
+    }
+  </style>
+</head>
+<body>
+
+<section id="customer_Registration"  >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="padding-left: 15%">
+        <h5 class="modal-title" id="exampleModalLabel1" style="font-size: 30px; left: 35px; padding-top: 58px">Customer Registration</h5>
+      </div>
+
+
+      <div class="modal-body">
+        <section style="width: 660px; padding-left: 129px; padding-top: 50px;" >
+          <div class="mb-3" style="stroke: black">
+            <input class="form-control" id="txtCustomerId" type="text" name="cusID" placeholder="Nic" style="border-color: darkslateblue" >
+          </div>
+          <div class="mb-3">
+            <input class="form-control" id="txtCustomerName" multiple type="text" name="name" placeholder="Name" style="border-color: darkslateblue">
+          </div>
+          <div class="mb-3">
+            <input class="form-control" id="txtCustomerAddress" type="text" name="address" placeholder="Address" style="border-color: darkslateblue">
+          </div>
+          <div class="mb-3">
+            <input class="form-control form-control-sm" id="txtCustomerPassword" type="text" name="password" placeholder="Password" style="border-color: darkslateblue">
+          </div>
+          <div class="mb-3">
+            <input class="form-control form-control-sm" id="txtCustomerContactNum" type="number" name="contactnom" placeholder="ContactNum" style="border-color: darkslateblue">
+          </div>
+          <div class="mb-3">
+            <input class="form-control form-control-sm" id="txtCustomerLicence" type="text" name="LicenceNum" placeholder="Licence" style="border-color: darkslateblue">
+          </div>
+          <div class="mb-3">
+            <input class="form-control" type="file" id="formFiles23" placeholder="Please insert nic picture " style="border-color: darkslateblue">
+          </div>
+          <div aria-label="Basic mixed styles example" class="btn-group" role="group">
+            <button class="btn btn-danger" type="button" id="CustomerDelete"  > Delete</button>
+            <button class="btn btn-warning" type="button" id="CustomerUpdate"  > Update</button>
+            <button class="btn btn-success " type="button" id="clearDetails" > Clear</button>
+            <button class="btn btn-info " type="button" id="getAll-Customer"  >Get-All </button>
+          </div>
+        </section>
+      </div>
+
+      <div style="padding-top: 26px; padding-left: 850px;">
+        <!--                <button class="btn btn-secondary" type="button">Close</button>-->
+        <button class="btn btn-primary" type="button" id="saveCustomer">Register Customer</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</body>
+</html>
