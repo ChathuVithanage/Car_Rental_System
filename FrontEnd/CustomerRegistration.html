@@ -16,6 +16,14 @@
       background-repeat: no-repeat;
       opacity: 78%;
     }
+
+    .table{
+      position: absolute;
+      width: 70%;
+      top: 60%;
+      left: 29%;
+    }
+
   </style>
 </head>
 <body>
@@ -29,7 +37,7 @@
 
 
       <div class="modal-body">
-        <section style="width: 660px; padding-left: 129px; padding-top: 50px;" >
+        <section style="width: 630px; padding-left: 110px; padding-top: 50px;" >
           <div class="mb-3" style="stroke: black">
             <input class="form-control" id="txtCustomerId" type="text" name="cusID" placeholder="Nic" style="border-color: darkslateblue" >
           </div>
@@ -60,10 +68,44 @@
         </section>
       </div>
 
-      <div style="padding-top: 26px; padding-left: 850px;">
+      <div style="padding-top: 26px; padding-left: 450px;">
         <!--                <button class="btn btn-secondary" type="button">Close</button>-->
         <button class="btn btn-primary" type="button" id="saveCustomer">Register Customer</button>
       </div>
+
+      <div class="table"  >
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+        </tr>
+        </tbody>
+      </table>
+      </div>
+
+
     </div>
   </div>
 </section>

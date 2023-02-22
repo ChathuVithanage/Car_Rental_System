@@ -12,6 +12,41 @@
 
   <style>
 
+    .main_tp h1{
+      color: white;
+      text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+
+    .btn{
+
+      font-family: Roboto, sans-serif;
+      font-weight: 0;
+      font-size: 14px;
+      color: #fff;
+      background-color: steelblue;
+      padding: 10px 30px;
+      border: 2px solid #0066cc;
+      box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+      border-radius: 50px;
+      transition : 1000ms;
+      transform: translateY(0);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .btn:hover{
+
+      transition : 1000ms;
+      padding: 10px 50px;
+      transform : translateY(-0px);
+      background-color: #fff;
+      color: #0066cc;
+      border: solid 2px #0066cc;
+    }
 
 
 
@@ -20,52 +55,45 @@
 </head>
 <body>
 
-<header class="header sticky-top bg-secondary">
+<header class="sticky-top">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary " style="background-color: lightslategrey">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
 
-  <div>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Booking now...</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav" justify-content-end>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#" >Home</a>
-            </li>
-            <li class="nav-item">
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Sign in
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Admin Login</a></li>
-                  <li><a class="dropdown-item" href="#">Customer Login</a></li>
-                </ul>
-              </div>
-            </li>
-
-          </ul>
+      <div class="nav justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active fw-bold" aria-current="page" href="#" style="font-size: 18px; padding-left: 18px; padding-right: 18px">Home</a>
+          <a class="nav-link fw-bold" href="#" style="font-size: 18px; padding-left: 18px; padding-right: 18px">Car</a>
+          <a class="nav-link fw-bold" href="#aboutSection" style="font-size: 18px;padding-left: 18px; padding-right: 18px">About Us</a>
+          <div class="dropdown">
+            <a class="nav-link fw-bold text-decoration-underline btn btn-secondary dropdown-toggle" href="#" style="font-size: 17px; padding-left: 24px; padding-right: 18px" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign In</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" data-bs-target="#customerForm" data-bs-toggle="modal">Customer SignIn</a></li>
+              <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#adminForm">Admin SignIn</a></li>
+              <!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+            </ul>
+          </div>
         </div>
       </div>
 
-    </nav>
-  </div>
-
+    </div>
+  </nav>
 </header>
-
-
 
 <main class="main">
 
   <section class="home d-flex  justify-content-center">
 
-    <div class="position-absolute mt-5 d-flex flex-column justify-content-end home-text " style="width: 80vw">
-      <h1 class="text-center pt-5" style="color: white">Search and Find Your Best Car Rental with easy way</h1><br>
+    <div class="main_tp position-absolute mt-5 d-flex flex-column justify-content-end home-text " style="width: 80vw">
+      <h1 class="text-center pt-5" >Search and Find Your Best Car Rental with easy way</h1><br>
       <p class="text-center text-dark pb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequatur impedit inventore magnam necessitatibus nisi nobis officia quae quaerat, sunt, temporibus ut vel voluptatum? Adipisci consectetur itaque magnam odio tempore.</p>
       <div class="d-flex justify-content-end">
-        <button type="button" class="btn btn-secondary btn-lg" style="width: 350px">Large button</button>
+<!--        <button type="button" class="btn btn-secondary btn-lg" style="width: 350px">Large button</button>-->
+        <!--1️⃣ code CSS below -->
+
+
+
+        <button type="button" class="btn" style="width: 250px;">See more Details...</button>
       </div>
 
     </div>
