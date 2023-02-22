@@ -38,9 +38,13 @@ public class CustomerController {
         return new ResponseUtil("OK","Successfully Loaded. :" ,service.getAllCustomers());
     }
 
-    @GetMapping(path = "/{NIC}")
-    public ResponseUtil searchCustomerByNIC(@PathVariable String NIC){
+//    @GetMapping(path = "/{NIC}")
+////    public ResponseUtil searchCustomerByNIC(@PathVariable String NIC){
+////        return new ResponseUtil("OK","Successfully Loaded. :" ,service.searchCustomerWithNIC(NIC));
+////    }
+
+    @GetMapping(params = {"NIC"})
+    public ResponseUtil searchCustomerByNIC(String NIC){
         return new ResponseUtil("OK","Successfully Loaded. :" ,service.searchCustomerWithNIC(NIC));
     }
-
 }

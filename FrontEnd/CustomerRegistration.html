@@ -36,10 +36,12 @@
       </div>
 
 
+      <form id="CusRegister">
       <div class="modal-body">
+
         <section style="width: 630px; padding-left: 110px; padding-top: 50px;" >
           <div class="mb-3" style="stroke: black">
-            <input class="form-control" id="txtCustomerId" type="text" name="cusID" placeholder="Nic" style="border-color: darkslateblue" >
+            <input class="form-control" id="txtCustomerId" type="text" name="NIC" placeholder="Nic" style="border-color: darkslateblue" >
           </div>
           <div class="mb-3">
             <input class="form-control" id="txtCustomerName" multiple type="text" name="name" placeholder="Name" style="border-color: darkslateblue">
@@ -51,10 +53,10 @@
             <input class="form-control form-control-sm" id="txtCustomerPassword" type="text" name="password" placeholder="Password" style="border-color: darkslateblue">
           </div>
           <div class="mb-3">
-            <input class="form-control form-control-sm" id="txtCustomerContactNum" type="number" name="contactnom" placeholder="ContactNum" style="border-color: darkslateblue">
+            <input class="form-control form-control-sm" id="txtCustomerContactNum" type="number" name="Contact" placeholder="ContactNum" style="border-color: darkslateblue">
           </div>
           <div class="mb-3">
-            <input class="form-control form-control-sm" id="txtCustomerLicence" type="text" name="LicenceNum" placeholder="Licence" style="border-color: darkslateblue">
+            <input class="form-control form-control-sm" id="txtCustomerLicence" type="text" name="license" placeholder="Licence" style="border-color: darkslateblue">
           </div>
           <div class="mb-3">
             <input class="form-control" type="file" id="formFiles23" placeholder="Please insert nic picture " style="border-color: darkslateblue">
@@ -63,10 +65,12 @@
             <button class="btn btn-danger" type="button" id="CustomerDelete"  > Delete</button>
             <button class="btn btn-warning" type="button" id="CustomerUpdate"  > Update</button>
             <button class="btn btn-success " type="button" id="clearDetails" > Clear</button>
-            <button class="btn btn-info " type="button" id="getAll-Customer"  >Get-All </button>
+            <button class="btn btn-info " type="button" id="searchCustomer"  >search </button>
           </div>
         </section>
       </div>
+      </form>
+
 
       <div style="padding-top: 26px; padding-left: 450px;">
         <!--                <button class="btn btn-secondary" type="button">Close</button>-->
@@ -113,5 +117,40 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+<script>
+  let baseUrl = "http://localhost:8080/Car_Rental_System_war/"
+
+  $("#saveCustomer").click(function (){
+    let formData = $("#CusRegister").serialize()
+    $.ajax({
+      url:baseUrl+"customer",
+      method:"post",
+      dataType:"json",
+      data:formData,
+      success:function (res){
+        alert("save data")
+      }
+
+    })
+  })
+
+  $("#searchCustomer").click(function (){
+    $.ajax({
+      url:baseUrl+"customer?NIC=" + $("#txtCustomerId").val(),
+      dataType:"json",
+      method: "get",
+      success:function (res){
+        $("#txtCustomerName").val(res.data.name)
+        $("#txtCustomerAddress").val(res.data.address)
+        $("#txtCustomerPassword").val(res.data.password)
+        $("#txtCustomerContactNum").val(res.data.Contact)
+        $("#txtCustomerLicence").val(res.data.license)
+      }
+    })
+  })
+
+</script>
+
 </body>
 </html>

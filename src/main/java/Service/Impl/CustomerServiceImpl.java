@@ -54,11 +54,18 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO searchCustomerWithNIC(String NIC) {
-        Optional<Customer> customer = repo.findById(NIC);
-        if (customer.isPresent()) {
-            return mapper.map(customer,CustomerDTO.class);
+//        Optional<Customer> customer = repo.findById(NIC);
+//        if (customer.isPresent()) {
+//            return mapper.map(customer,CustomerDTO.class);
+//        }
+//        return null;
+        if (!repo.existsById(NIC)){
+            throw new RuntimeException("invalid id");
+
         }
-        return null;
+        Customer customer = repo.findCustomerByNIC(NIC);
+        CustomerDTO map = mapper.map(customer,CustomerDTO.class);
+        return map;
     }
 
 }
