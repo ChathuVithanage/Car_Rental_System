@@ -10,8 +10,8 @@ import lombok.ToString;
 @Data
 @ToString
 public class CustomerDTO {
-    private String NIC;
-    private byte[] NIC_img;
+    private String nic;
+    private byte[] nic_img;
     private String license;
     private byte[] license_img;
     private String name;

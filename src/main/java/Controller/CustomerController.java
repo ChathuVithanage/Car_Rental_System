@@ -21,16 +21,21 @@ public class CustomerController {
         return new ResponseUtil("OK","Successfully Registered.!",null);
     }
 
-    @DeleteMapping(params = {"id"})
-    public ResponseUtil deleteCustomer(@RequestParam String id){
-        service.deleteCustomer(id);
-        return new ResponseUtil("OK","Successfully Deleted. :"+id ,null);
+  /*  @DeleteMapping(params = "NIC")
+    public ResponseUtil deleteCustomer(@RequestParam String NIC){
+        service.deleteCustomer(NIC);
+        return new ResponseUtil("OK","Successfully Deleted. :"+NIC ,null);
+    }*/
+    @DeleteMapping(params = {"nic"})
+    public ResponseUtil DeleteCustomer(@RequestParam String nic){
+        service.DeleteCustomer(nic);
+        return new ResponseUtil("ok","DeleteCustomer",null);
     }
 
     @PutMapping
     public ResponseUtil updateCustomer(@RequestBody CustomerDTO dto){
         service.updateCustomer(dto);
-        return new ResponseUtil("OK","Successfully Updated. :"+dto.getNIC() ,null);
+        return new ResponseUtil("OK","Successfully Updated. :"+dto.getNic() ,null);
     }
 
     @GetMapping

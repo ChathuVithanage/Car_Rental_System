@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @ToString
 public class Customer {
     @Id
-    private String NIC;
+    private String nic;
     //private String NIC_img;
     private String license;
     //private String license_img;

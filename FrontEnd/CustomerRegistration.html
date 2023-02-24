@@ -41,7 +41,7 @@
 
         <section style="width: 630px; padding-left: 110px; padding-top: 50px;" >
           <div class="mb-3" style="stroke: black">
-            <input class="form-control" id="txtCustomerId" type="text" name="NIC" placeholder="Nic" style="border-color: darkslateblue" >
+            <input class="form-control" id="txtCustomerId" type="text" name="nic" placeholder="Nic" style="border-color: darkslateblue" >
           </div>
           <div class="mb-3">
             <input class="form-control" id="txtCustomerName" multiple type="text" name="name" placeholder="Name" style="border-color: darkslateblue">
@@ -81,31 +81,33 @@
       <table class="table">
         <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">NIC</th>
+          <th scope="col">License</th>
+          <th scope="col">Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">Contact</th>
+
         </tr>
         </thead>
-        <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
-        </tbody>
+<!--        <tbody>-->
+<!--        <tr>-->
+<!--          <th scope="row">1</th>-->
+<!--          <td>Mark</td>-->
+<!--          <td>Otto</td>-->
+<!--          <td>@mdo</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <th scope="row">2</th>-->
+<!--          <td>Jacob</td>-->
+<!--          <td>Thornton</td>-->
+<!--          <td>@fat</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <th scope="row">3</th>-->
+<!--          <td colspan="2">Larry the Bird</td>-->
+<!--          <td>@twitter</td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
       </table>
       </div>
 
@@ -120,7 +122,7 @@
 
 <script>
   let baseUrl = "http://localhost:8080/Car_Rental_System_war/"
-
+  let baseUerlD="http://localhost:8080/Car_Rental_System_war/"
   $("#saveCustomer").click(function (){
     let formData = $("#CusRegister").serialize()
     $.ajax({
@@ -136,6 +138,7 @@
   })
 
   $("#searchCustomer").click(function (){
+
     $.ajax({
       url:baseUrl+"customer?NIC=" + $("#txtCustomerId").val(),
       dataType:"json",
@@ -148,7 +151,21 @@
         $("#txtCustomerLicence").val(res.data.license)
       }
     })
-  })
+  });
+  $('#CustomerDelete').click(function (){
+   alert($("#txtCustomerId").val())
+    $.ajax({
+      url:baseUerlD+"customer?nic=" + $("#txtCustomerId").val(),
+      dataType: "json",
+      method:"delete",
+      success:function (res){
+        alert(res.message);
+      },
+      error:function (error){
+
+      }
+    })
+  });
 
 </script>
 

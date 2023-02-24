@@ -25,23 +25,23 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void saveCustomer(CustomerDTO dto) {
-        if (repo.existsById(dto.getNIC())){
+        if (repo.existsById(dto.getNic())){
             throw new RuntimeException("Customer Already Exist. Please enter another id..!");
         }
         repo.save(mapper.map(dto, Customer.class));
     }
-
+/*
     @Override
     public void deleteCustomer(String NIC) {
         if (!repo.existsById(NIC)){
             throw new RuntimeException("Wrong ID..Please enter valid id..!");
         }
         repo.deleteById(NIC);
-    }
+    }*/
 
     @Override
     public void updateCustomer(CustomerDTO dto) {
-        if (!repo.existsById(dto.getNIC())){
+        if (!repo.existsById(dto.getNic())){
             throw new RuntimeException("Customer Not Exist. Please Enter Valid ID..!");
         }
         repo.save(mapper.map(dto, Customer.class));
@@ -53,17 +53,25 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public CustomerDTO searchCustomerWithNIC(String NIC) {
+    public void DeleteCustomer(String nic) {
+        if(!repo.existsById(nic)){
+            throw new RuntimeException("invalid id");
+        }
+        repo.deleteById(nic);
+    }
+
+    @Override
+    public CustomerDTO searchCustomerWithNIC(String nic) {
 //        Optional<Customer> customer = repo.findById(NIC);
 //        if (customer.isPresent()) {
 //            return mapper.map(customer,CustomerDTO.class);
 //        }
 //        return null;
-        if (!repo.existsById(NIC)){
+        if (!repo.existsById(nic)){
             throw new RuntimeException("invalid id");
 
         }
-        Customer customer = repo.findCustomerByNIC(NIC);
+        Customer customer = repo.findCustomerByNic(nic);
         CustomerDTO map = mapper.map(customer,CustomerDTO.class);
         return map;
     }
