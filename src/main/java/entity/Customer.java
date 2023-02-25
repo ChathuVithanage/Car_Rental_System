@@ -20,7 +20,7 @@ public class Customer {
     private String license;
     //private String license_img;
     private String name;
-    private int Contact;
+    private int contact;
     private String address;
     private String password;
 

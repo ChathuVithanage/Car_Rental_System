@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Car</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
@@ -11,7 +12,6 @@
         .listing-details__features-box {
             position: relative;
             display: block;
-            background-color: #e9edf2;
             padding: 40px 50px 38px;
         // border-radius: var(--thm-border-radius);
             margin-top: 30px;
@@ -24,26 +24,197 @@
 </head>
 <body>
 
-<h5>Add New Car</h5>
+<section>
+    <div class="line1" style="width: 100%; height: 30px; background-color: #b3d9ff"></div>
+    <div class="tx" style="text-align: center">
+        <h5>Add New Car</h5>
 
-<div class="row">
-    <div class="col-md-6 offset-md-3">
-        <div class="listing-details__features-box" style=" padding: 8px; width: 60%; height: 70vh; left: 20%" >
+    </div>
 
-            <div class="grid text-center">
-                <div class="g-col-6" style="height: 65vh">
-                    jhbid
+
+    <div class="container text-center">
+
+
+        <div class="row">
+            <div class="col-2">
+
+            </div>
+            <div class="col-8" style="background-color:  #ccccff; height: 70vh">
+
+                <div class="row">
+                <div class="col-6">
+                    <div class="mb-3" style="stroke: black; padding-top: 15px">
+                        <input class="form-control" id="txtRegId" type="text" name="regId" placeholder="RegId" style="border-color: darkslateblue" >
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="mb-3" style="stroke: black; padding-top: 15px">
+                        <input class="form-control" id="txtBrand" type="text" name="brand" placeholder="Brand" style="border-color: darkslateblue" >
+                    </div>
+                </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="mb-3" style="stroke: black; padding-top: 8px">
+                            <input class="form-control" id="txtModel" type="text" name="model" placeholder="Model" style="border-color: darkslateblue" >
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="mb-3" style="stroke: black; padding-top: 8px">
+                            <input class="form-control" id="txtMileage" type="text" name="mileage" placeholder="Mileage" style="border-color: darkslateblue" >
+                        </div>
+                    </div>
+                    <div class="col-6">
+
+                        <div class="row">
+                                <div class="col">
+                                    <div class="mb-3" style="stroke: black; padding-top: 5px">
+                                        <label class="color" style="font-size: 15px">color</label>
+                                        <input class="form-control" id="txtColor" type="color" name="Color" placeholder="Color" style="border-color: darkslateblue; height: 38px" >
+                                    </div>
+                                </div>
+                                <div class="col order-5">
+                                    <div class="mb-3" style="stroke: black; padding-top: 5px">
+
+                                    <label class="Type" style="font-size: 15px">Type</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>select</option>
+                                        <option value="1">General</option>
+                                        <option value="2">Premium</option>
+                                        <option value="2">Luxury</option>
+                                    </select>
+                                    </div>
+
+                                </div>
+                                <div class="col order-1">
+
+                                    <div class="mb-3" style="stroke: black; padding-top: 5px">
+                                        <label class="Passengers" style="font-size: 15px">Passengers</label>
+                                        <input class="form-control" id="txtPassengers" type="number" name="Passengers" placeholder="Passengers" style="border-color: darkslateblue" >
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="col-6">
+
+                        <div class="row">
+                            <div class="col-sm-5 col-md-6">
+                                <div class="mb-3" style="stroke: black; padding-top: 5px">
+
+                                    <label class="Fuel Type" style="font-size: 15px">Fuel Type</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>select</option>
+                                        <option value="1">Petrol</option>
+                                        <option value="2">Diesel</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                                <div class="mb-3" style="stroke: black; padding-top: 5px">
+
+                                    <label class="Transmission" style="font-size: 15px">Fuel Type</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>select</option>
+                                        <option value="1">Manual</option>
+                                        <option value="2">Auto</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                            <div class="col">
+
+                                    <div class="mb-3" style="stroke: black; padding-top: 8px">
+                                        <input class="form-control" id="txtServiceMileage" type="text" name="serviceMileage" placeholder="Service Mileage" style="border-color: darkslateblue" >
+
+                                </div>
+
+                            </div>
+                            <div class="col order-5">
+                                    <div class="mb-3" style="stroke: black; padding-top: 8px">
+                                        <input class="form-control" id="txtExtraPrice" type="text" name="extraPrice" placeholder="Extra price" style="border-color: darkslateblue" >
+                                    </div>
+
+                            </div>
+                            <div class="col order-2">
+                                <div class="col-6" style="padding-top: 12px">
+                                <div class="form-check form-switch" >
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" >
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Is Available</label>
+                                </div>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="col-6">
+
+                        <div class="row">
+                            <div class="col-sm-5 col-md-6">
+                                <div class="mb-3" style="stroke: black; padding-top: 8px">
+                                    <input class="form-control" id="txtDailyRate" type="text" name="dailyRate" placeholder="Daily Rate" style="border-color: darkslateblue" >
+                                </div>
+                            </div>
+                            <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                                <div class="mb-3" style="stroke: black; padding-top: 8px">
+                                    <input class="form-control" id="txtFreeMileage1" type="text" name="freeMileage1" placeholder="Free Mileage(km)" style="border-color: darkslateblue" >
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-6">
+
+                        <div class="row">
+                            <div class="col-sm-5 col-md-6">
+                                <div class="mb-3" style="stroke: black; padding-top: 8px">
+                                    <input class="form-control" id="txtMonthlyRate" type="text" name="dailyRate" placeholder="Monthly Rate" style="border-color: darkslateblue" >
+                                </div>
+                            </div>
+                            <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
+                                <div class="mb-3" style="stroke: black; padding-top: 8px">
+                                    <input class="form-control" id="txtFreeMileage2" type="text" name="freeMileage2" placeholder="Free Mileage(km)" style="border-color: darkslateblue" >
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-6">
+                    <div class="input-group mb-3">
+                        <input type="file" class="form-control" id="inputGroupFile02">
+                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                    </div>
+                    </div>
+
+                    <div class="row">
+                    <div class="col-6">
+
+                    </div>
+
+                    <div class="col-6">
+                        <button type="button" class="btn btn-secondary">Save Car</button>
+                    </div>
+                    </div>
+
                 </div>
             </div>
 
-            <div class="g-col-6" style="height: 65vh">
-                xsdxcwdijoc
-            </div>
 
         </div>
+
+
     </div>
 
-</div>
+</section>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/771f6b37f4.js" crossorigin="anonymous"></script>
 </body>
 </html>

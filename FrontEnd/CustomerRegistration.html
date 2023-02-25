@@ -89,25 +89,14 @@
 
         </tr>
         </thead>
-<!--        <tbody>-->
-<!--        <tr>-->
-<!--          <th scope="row">1</th>-->
-<!--          <td>Mark</td>-->
-<!--          <td>Otto</td>-->
-<!--          <td>@mdo</td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--          <th scope="row">2</th>-->
-<!--          <td>Jacob</td>-->
-<!--          <td>Thornton</td>-->
-<!--          <td>@fat</td>-->
-<!--        </tr>-->
-<!--        <tr>-->
-<!--          <th scope="row">3</th>-->
-<!--          <td colspan="2">Larry the Bird</td>-->
-<!--          <td>@twitter</td>-->
-<!--        </tr>-->
-<!--        </tbody>-->
+        <tbody class="Customertable">
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        </tbody>
       </table>
       </div>
 
@@ -131,7 +120,8 @@
       dataType:"json",
       data:formData,
       success:function (res){
-        alert("save data")
+        alert("save data");
+        LoadAllCustomer();
       }
 
     })
@@ -163,6 +153,40 @@
       },
       error:function (error){
 
+      }
+    })
+  });
+  LoadAllCustomer();
+  function LoadAllCustomer(){
+    $.ajax({
+      url:baseUrl+"customer",
+      success:function (res){
+        $('.Customertable').empty();
+        for(let i=0;i<res.data.length;i++){
+          $('.Customertable').append(`<tr><td>`+res.data[i].nic +`</td><td>`+res.data[i].license+`</td><td>`+res.data[i].name+`</td><td>`+res.data[i].address+`</td><td>`+res.data[i].Contact+`</td></tr>`)
+        }
+      }
+    })
+  };
+  $('#CustomerUpdate').click(function (){
+    let customerJson={
+      nic:$('#txtCustomerId').val(),
+      name:$('#txtCustomerName').val(),
+      license:$('#txtCustomerLicence').val(),
+      address:$('#txtCustomerAddress').val(),
+      contact:$('#txtCustomerContactNum').val(),
+      password:$('#txtCustomerPassword').val()
+    };
+    $.ajax({
+       url:baseUrl+"customer",
+      method:"put",
+      data:JSON.stringify(customerJson),
+      dataType:"jason",
+      contentType:"application/json",
+      async:false,
+      success:function (){
+         alert('update');
+        LoadAllCustomer();
       }
     })
   });

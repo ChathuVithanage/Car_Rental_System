@@ -20,11 +20,12 @@ public class Car {
     private String type;
     private int passengers;
     private String color;
-    private Double price;
+    private Double dailyPrice;
+    private Double MonthlyPrice;
     private String serviceMileage;
     private String FreeMileage;
     @Lob
-    private byte[] image;
+    //private byte[] image;
     private boolean availability;
     private String model;
     private Double priceForExtraKm;

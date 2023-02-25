@@ -15,7 +15,7 @@ public class CustomerDTO {
     private String license;
     private byte[] license_img;
     private String name;
-    private int Contact;
+    private int contact;
     private String address;
     private String password;
 }

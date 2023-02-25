@@ -70,7 +70,7 @@
             <a class="nav-link fw-bold text-decoration-underline btn btn-secondary dropdown-toggle" href="#" style="font-size: 17px; padding-left: 24px; padding-right: 18px" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign In</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#" data-bs-target="#customerForm" data-bs-toggle="modal">Customer SignIn</a></li>
-              <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#adminForm">Admin SignIn</a></li>
+                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#adminForm">Admin SignIn</a></li>
               <!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
             </ul>
           </div>
@@ -83,7 +83,10 @@
 
 <main class="main">
 
+
   <section class="home d-flex  justify-content-center">
+
+
 
     <div class="main_tp position-absolute mt-5 d-flex flex-column justify-content-end home-text " style="width: 80vw">
       <h1 class="text-center pt-5" >Search and Find Your Best Car Rental with easy way</h1><br>
@@ -106,6 +109,95 @@
 
 
   </section>
+
+<!--Customer Login-->
+    <form class="col-2 " id="CustomerForms" >
+        <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" tabindex="-1" id="customerForm" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #46b2ff ; padding-left: 45%">
+                        <h5 class="modal-title" id="exampleModalLabel1">LOG IN </h5>
+                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                    </div>
+                    <div class="modal-body">
+                        <section>
+                            <div class="mb-3">
+
+                                <input class="form-control" id="txtCustomerId" type="text" name="cusID" placeholder="Nic">
+                            </div>
+                            <div class="mb-3">
+
+                                <input class="form-control form-control-sm" id="txtCustomerPassword" type="text" name="password" placeholder="Password">
+                            </div>
+                            <div class="mb-3">
+                                <div class="col" id="colD">
+                                    <a href="#!">Forget Password?</a>
+                                </div>
+                            </div>
+                            <div style="text-align: center">
+                                <button type="button" class="btn btn-primary btn btn-block mb-3" style="padding-left: 70px; padding-right: 70px">Log In</button>
+                            </div>
+
+                        </section>
+                    </div>
+                    <div class="modal-footer text-center">
+                        <p>
+                            "Not a member?"
+                            <a href="CustomerRegistration.html">Register</a>
+                        </p>
+                        <p>or sign up with:</p>
+<!--                        <button type="button" class="btn btn-link btn-floating mx-1"></button>-->
+<!--                        <button type="button" class="btn btn-link btn-floating mx-1"></button>-->
+<!--                        <button type="button" class="btn btn-link btn-floating mx-1"></button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+<!--    Admin Login-->
+
+    <form class="col-2 " id="AdminForms" >
+        <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" tabindex="-1" id="adminForm" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #46b2ff ; padding-left: 45%">
+                        <h5 class="modal-title" id="exampleModalLabel2">LOG IN </h5>
+                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                    </div>
+                    <div class="modal-body">
+                        <section>
+                            <div class="mb-3">
+                                <input class="form-control" id="txtAdminId" type="text" name="cusID" placeholder="Nic">
+                            </div>
+                            <div class="mb-3">
+                                <input class="form-control form-control-sm" id="txtAdminPassword" type="text" name="password" placeholder="Password">
+                            </div>
+                            <div class="mb-3">
+                                <div class="col" id="colA">
+                                    <a href="#!">Forget Password?</a>
+                                </div>
+                            </div>
+                            <div style="text-align: center">
+                                <button type="button" class="btn btn-primary btn btn-block mb-3" style="padding-left: 70px; padding-right: 70px">Log In</button>
+                            </div>
+
+                        </section>
+                    </div>
+                    <div class="modal-footer text-center">
+                        <p>
+                            "Not a member?"
+                            <a href="customerRegister.html">Register</a>
+                        </p>
+                        <p>or sign up with:</p>
+                        <button type="button" class="btn btn-link btn-floating mx-1"></button>
+                        <button type="button" class="btn btn-link btn-floating mx-1"></button>
+                        <button type="button" class="btn btn-link btn-floating mx-1"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 
         <section class="gauto-about-area section_70">
             <div class="line" style="width: 100%; height: 30px; background-color: lightskyblue"></div>
