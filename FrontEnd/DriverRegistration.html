@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Manage Drivers</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="styleSheet.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link href="index.css" rel="stylesheet">
+
 
 </head>
 <body>
@@ -13,17 +15,16 @@
 
 <div class="d-flex justify-content-md-evenly p-5">
     <button class="btn btn-success" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button"
-            id="CustomerManager">
+            id="DriverManager">
         Add Driver
     </button>
-    <button type="button" class="btn btn-secondary">Update</button>
-    <button type="button" class="btn btn-danger">Delete</button>
-    <button type="button" class="btn btn-info">Get All</button>
+
+
 
 
 </div>
 
-<form class="col-2 " id="CustomerForms">
+<form class="col-2 " id="DriverForms">
     <div aria-hidden="true"  aria-labelledby="exampleModalLabel" class="modal fade modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1"
          id="Driverform">
         <div class="modal-dialog position-absolute" style="margin-left: 38rem;">
@@ -52,9 +53,10 @@
                                                         <h6 class="mb-0">License ID</h6>
 
                                                     </div>
-                                                    <div class="col-md-9 pe-5">
+                                                    <div class="col-md-9 pe-3">
 
-                                                        <input type="text"  class="form-control form-control-lg"/>
+                                                        <input class="form-control" id="txtDriverLicense" type="text" name="license" placeholder="license" style="border-color: darkslateblue" >
+                                                        <br><button type="button" class="btn btn-dark"  type="button" id="searchDriver">search</button>
 
                                                     </div>
                                                 </div>
@@ -69,7 +71,7 @@
                                                     </div>
                                                     <div class="col-md-9 pe-5">
 
-                                                        <input type="text" class="form-control form-control-lg"/>
+                                                        <input class="form-control" id="txtDriverName" type="text" name="name" placeholder="Name" style="border-color: darkslateblue" >
 
                                                     </div>
                                                 </div>
@@ -84,7 +86,7 @@
                                                     </div>
                                                     <div class="col-md-9 pe-5">
 
-                                                        <input type="text" class="form-control form-control-lg"/>
+                                                        <input class="form-control" id="txtDriverAddress" type="text" name="address" placeholder="Address" style="border-color: darkslateblue" >
 
                                                     </div>
                                                 </div>
@@ -140,7 +142,7 @@
                                                     </div>
                                                     <div class="col-md-9 pe-5">
 
-                                                        <input type="text" class="form-control form-control-lg"/>
+                                                        <input class="form-control" id="txtDriverContact" type="text" name="contact" placeholder="Contact" style="border-color: darkslateblue" >
 
                                                     </div>
                                                 </div>
@@ -155,20 +157,28 @@
                                                     </div>
                                                     <div class="col-md-9 pe-5">
 
-                                                        <select class="form-select" aria-label="Transmission">
+                                                        <select class="form-select" aria-label="Transmission" id="ddSelect" onchange="ddISelect();">
                                                             <option selected>Available</option>
                                                             <option value="1">Yes</option>
                                                             <option value="2">No</option>
                                                         </select>
-
+                                                        <br>
+                                                        <input type="text" readonly="readonly" style="border-color: darkslateblue" name="available" id="txtDriverAvailable" >
                                                     </div>
                                                 </div>
 
                                                 <hr class="mx-n3">
 
                                                 <div class="px-5 py-4">
-                                                    <button type="submit" class="btn btn-primary btn-lg">Register
-                                                    </button>
+                                                    <button type="button" class="btn btn-primary" type="button" id="saveDriver">Register Driver</button>
+
+                                                </div>
+
+                                                <div class="px-5 py-4">
+<!--                                                    <button class="btn btn-dark"  type="button" id="searchDriver">search</button>-->
+                                                    <button class="btn btn-dark"  type="button" id="updateDriver">Update</button>
+                                                    <button class="btn btn-dark"  type="button" id="DeleteDriver">Delete</button>
+
                                                 </div>
 
                                             </div>
@@ -181,107 +191,120 @@
 
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 </form>
 
-<table class="table align-middle mb-0 bg-white">
-    <thead class="bg-light">
-    <tr>
-        <th>Name</th>
-        <th>Title</th>
-        <th>Status</th>
-        <th>Position</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>
-            <div class="d-flex align-items-center">
-                <img
-                        src="https://mdbootstrap.com/img/new/avatars/8.jpg"
-                        alt=""
-                        style="width: 45px; height: 45px"
-                        class="rounded-circle"
-                />
-                <div class="ms-3">
-                    <p class="fw-bold mb-1">John Doe</p>
-                    <p class="text-muted mb-0">john.doe@gmail.com</p>
-                </div>
-            </div>
-        </td>
-        <td>
-            <p class="fw-normal mb-1">Software engineer</p>
-            <p class="text-muted mb-0">IT department</p>
-        </td>
-        <td>
-            <span class="badge badge-success rounded-pill d-inline">Active</span>
-        </td>
-        <td>Senior</td>
-        <td>
-            <button type="button" class="btn btn-link btn-sm btn-rounded">
-                Edit
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <div class="d-flex align-items-center">
-                <img src="https://mdbootstrap.com/img/new/avatars/6.jpg" class="rounded-circle" alt="" style="width: 45px; height: 45px"/>
-                <div class="ms-3">
-                    <p class="fw-bold mb-1">Alex Ray</p>
-                    <p class="text-muted mb-0">alex.ray@gmail.com</p>
-                </div>
-            </div>
-        </td>
-        <td>
-            <p class="fw-normal mb-1">Consultant</p>
-            <p class="text-muted mb-0">Finance</p>
-        </td>
-        <td>
-        <span class="badge badge-primary rounded-pill d-inline"
-        >Onboarding</span>
-        </td>
-        <td>Junior</td>
-        <td>
-            <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
-                Edit
-            </button>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <div class="d-flex align-items-center">
-                <img src="https://mdbootstrap.com/img/new/avatars/7.jpg" class="rounded-circle" alt="" style="width: 45px; height: 45px"/>
-                <div class="ms-3">
-                    <p class="fw-bold mb-1">Kate Hunington</p>
-                    <p class="text-muted mb-0">kate.hunington@gmail.com</p>
-                </div>
-            </div>
-        </td>
-        <td>
-            <p class="fw-normal mb-1">Designer</p>
-            <p class="text-muted mb-0">UI/UX</p>
-        </td>
-        <td>
-            <span class="badge badge-warning rounded-pill d-inline">Awaiting</span>
-        </td>
-        <td>Senior</td>
-        <td>
-            <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
-                Edit
-            </button>
-        </td>
-    </tr>
-    </tbody>
-</table>
+<div class="table"  >
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">License</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Available</th>
 
+
+        </tr>
+        </thead>
+        <tbody class="Drivertable">
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        <tr>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+
+<script>
+    let baseUrl = "http://localhost:8080/Car_Rental_System_war/"
+
+    $("#saveDriver").click(function (){
+        alert('weda')
+        let formData = $("#DriverForms").serialize()
+        $.ajax({
+            url:baseUrl+"driver",
+            method:"post",
+            dataType:"json",
+            data:formData,
+            success:function (res){
+                alert("save data");
+                LoadAllDriver()
+            }
+        })
+    })
+
+    // $("#searchDriver").click(function (){
+    //     alert('elama')
+    //     $.ajax({
+    //         url:baseUrl+"driver?license=" + $("#txtDriverLicense").val(),
+    //         dataType:"json",
+    //         method: "get",
+    //         success:function (res){
+    //             $("#txtDriverName").val(res.data.name)
+    //             $("#txtDriverAddress").val(res.data.address)
+    //             $("#txtDriverContact").val(res.data.contact)
+    //             $("#txtDriverAvailable").val(res.data.available)
+    //         }
+    //     })
+    // });
+
+    $("#searchDriver").click(function (){
+        $.ajax({
+            url:baseUrl+"driver?license=" + $("#txtDriverLicense").val(),
+            dataType:"json",
+            method:"get",
+            async:false,
+            success:function (res){
+                console.log(res)
+                $('#txtDriverLicense').val(res.data.license);
+                $('#txtDriverName').val(res.data.name);
+                $('#txtDriverAddress').val(res.data.address);
+                $('#txtDriverContact').val(res.data.contact);
+                $('#txtDriverAvailable').val(res.data.available);
+            },
+            error:function (error){
+
+            }
+        })
+    });
+
+    function LoadAllDriver(){
+        $.ajax({
+            url:baseUrl+"driver",
+            success:function (res){
+                $('.Drivertable').empty();
+                for(let i=0;i<res.data.length;i++){
+                    $('.Drivertable').append(`<tr><td>`+res.data[i].license +`</td><td>`+res.data[i].name+`</td><td>`+res.data[i].address+`</td><td>`+res.data[i].contact+`</td><td>`+res.data[i].available+`</td></tr>`)
+                }
+            }
+        })
+    };
+
+</script>
+
+<!--<script type="text/javascript" src="jquery-3.6.1.min.js"></script>-->
+
+
+
+<script>
+    function ddISelect(){
+        var d = document.getElementById("ddSelect")
+        var display = d.options[d.selectedIndex].text;
+        document.getElementById("txtDriverAvailable").value = display;
+    }
+</script>
+
 
 </body>
 </html>

@@ -20,7 +20,7 @@ public class CarDTO {
     private Double MonthlyPrice;
     private String serviceMileage;
     private String FreeMileage;
-    @Lob
+    //@Lob
 //    private byte[] image;
     private boolean availability;
     private String model;

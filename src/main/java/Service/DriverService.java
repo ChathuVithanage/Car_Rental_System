@@ -1,12 +1,12 @@
 package Service;
 
-import dto.CustomerDTO;
 import dto.DriverDTO;
+import entity.Driver;
 
 import java.util.ArrayList;
 
 public interface DriverService {
-    public void saveDriver(DriverDTO dto);
+    public Driver saveDriver(DriverDTO dto);
     public void deleteDriver(String license);
     public void updateDriver(DriverDTO dto);
     public ArrayList<DriverDTO> getAllDrivers();

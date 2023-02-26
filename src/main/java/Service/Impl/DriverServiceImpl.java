@@ -1,7 +1,9 @@
 package Service.Impl;
 
+import dto.CustomerDTO;
 import dto.DriverDTO;
 
+import entity.Customer;
 import entity.Driver;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -25,11 +27,12 @@ public class DriverServiceImpl implements DriverService {
     private ModelMapper mapper;
 
     @Override
-    public void saveDriver(DriverDTO dto) {
+    public Driver saveDriver(DriverDTO dto) {
         if (repo.existsById(dto.getLicense())){
-            throw new RuntimeException("Customer Already Exist. Please enter another id..!");
+            throw new RuntimeException("Driver Already Exist. Please enter another id..!");
         }
         repo.save(mapper.map(dto, Driver.class));
+        return null;
     }
 
     @Override
@@ -43,7 +46,7 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public void updateDriver(DriverDTO dto) {
         if (!repo.existsById(dto.getLicense())){
-            throw new RuntimeException("Customer Not Exist. Please Enter Valid ID..!");
+            throw new RuntimeException("Driver Not Exist. Please Enter Valid ID..!");
         }
         repo.save(mapper.map(dto, Driver.class));
     }
@@ -55,12 +58,26 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public DriverDTO searchDriverWithLicense(String license) {
-        Optional<Driver> driver = repo.findById(license);
-        if (driver.isPresent()) {
+        Driver driver = repo.findDriverByLicense(license);
+        if (driver.isAvailable()) {
             return mapper.map(driver,DriverDTO.class);
         }
         return null;
     }
+
+//    @Override
+//    public DriverDTO searchDriverWithLicense(String license) {
+//        Optional<Driver> driver = repo.findDriverByLicense(li);
+//        if (driver.isPresent()) {
+//            return mapper.map(driver,DriverDTO.class);
+//        }
+//        return null;
+//    }
+
+
+
+
+
 
 
 }

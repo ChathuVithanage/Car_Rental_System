@@ -14,4 +14,5 @@ public class DriverDTO {
     private String name;
     private int Contact;
     private String address;
+    private boolean available;
 }

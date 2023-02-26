@@ -17,13 +17,13 @@ public class DriverController {
     private DriverService service;
 
     @PostMapping
-    public ResponseUtil saveCustomer(@ModelAttribute DriverDTO dto){
+    public ResponseUtil saveDriver(@ModelAttribute DriverDTO dto){
         service.saveDriver(dto);
         return new ResponseUtil("OK","Successfully Registered.!",null);
     }
 
-    @DeleteMapping(params = {"id"})
-    public ResponseUtil deleteCustomer(@RequestParam String license){
+    @DeleteMapping(params = {"license"})
+    public ResponseUtil deleteDriver(@RequestParam String license){
         service.deleteDriver(license);
         return new ResponseUtil("OK","Successfully Deleted. :"+license ,null);
     }
