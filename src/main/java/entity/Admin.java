@@ -15,7 +15,9 @@ import javax.persistence.Id;
 @ToString
 public class Admin {
     @Id
+    private String nic;
     private String userName;
     private String name;
     private String password;
+    private String email;
 }

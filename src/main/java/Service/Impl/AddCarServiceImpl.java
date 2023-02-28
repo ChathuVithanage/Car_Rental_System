@@ -1,18 +1,16 @@
 package Service.Impl;
 
 import dto.CarDTO;
-import dto.CustomerDTO;
 import entity.Car;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import repo.CarRepo;
 import Service.AddCarService;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
-import java.util.Optional;
 
 @Service
 @Transactional
@@ -24,26 +22,32 @@ public class AddCarServiceImpl implements AddCarService {
     @Autowired
     private ModelMapper mapper;
 
+
     @Override
     public void saveCar(CarDTO dto) {
         if (repo.existsById(dto.getVehicleNo())){
-            throw new RuntimeException("Car Already Exist. Please enter another id..!");
+            throw new RuntimeException("Car Already Exist!");
         }
         repo.save(mapper.map(dto, Car.class));
     }
-/*
+
     @Override
-    public void deleteCustomer(String NIC) {
-        if (!repo.existsById(NIC)){
-            throw new RuntimeException("Wrong ID..Please enter valid id..!");
+    public void deleteCar(String vehicleNo) {
+        if (!repo.existsById(vehicleNo)){
+            throw new RuntimeException("Wrong Registration Number..Please enter a valid number !");
         }
-        repo.deleteById(NIC);
-    }*/
+        repo.deleteById(vehicleNo);
+    }
+
+    @Override
+    public CarDTO searchCarWithVehicleNo(String vehicleNo) {
+        return null;
+    }
 
     @Override
     public void updateCar(CarDTO dto) {
         if (!repo.existsById(dto.getVehicleNo())){
-            throw new RuntimeException("Car Not Exist. Please Enter Valid ID..!");
+            throw new RuntimeException("Car Doesn't Exist. Please Enter Valid identifier..!");
         }
         repo.save(mapper.map(dto, Car.class));
     }
@@ -53,24 +57,19 @@ public class AddCarServiceImpl implements AddCarService {
         return mapper.map(repo.findAll(),new TypeToken<ArrayList<CarDTO>>(){}.getType());
     }
 
-    @Override
-    public void DeleteCar(String vehicleNo) {
-        if(!repo.existsById(vehicleNo)){
-            throw new RuntimeException("invalid id");
-        }
-        repo.deleteById(vehicleNo);
-    }
-
-    @Override
-    public CarDTO searchCarWithVehicleNo(String vehicleNo) {
-
-        if (!repo.existsById(vehicleNo)){
-            throw new RuntimeException("invalid id");
-
-        }
-        Car car = repo.findCarByVehicleNo(vehicleNo);
-        CarDTO map = mapper.map(car,CarDTO.class);
-        return map;
-    }
-
+//    @Override
+//    public CarDTO findCarByVehicleNo(String vehicleNo) {
+//        return mapper.map(repo.findCarByVehicleNo(vehicleNo),CarDTO.class);
+//    }
+//
+//
+//    @Override
+//    public int countCarsByAvailabilityIsTrue() {
+//        return repo.countCarsByAvailabilityIsTrue();
+//    }
+//
+//    @Override
+//    public int countCarsScheduled() {
+//        return repo.countCarsScheduled();
+//    }
 }

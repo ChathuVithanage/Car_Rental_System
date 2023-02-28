@@ -37,8 +37,8 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public void deleteDriver(String license) {
-        if (!repo.existsById(license)){
-            throw new RuntimeException("Wrong ID..Please enter valid id..!");
+        if(!repo.existsById(license)){
+            throw new RuntimeException("invalid id");
         }
         repo.deleteById(license);
     }
@@ -58,11 +58,12 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public DriverDTO searchDriverWithLicense(String license) {
-        Driver driver = repo.findDriverByLicense(license);
-        if (driver.isAvailable()) {
-            return mapper.map(driver,DriverDTO.class);
+        if (!repo.existsById(license)){
+            throw new RuntimeException("invalid driver id");
         }
-        return null;
+        Driver driver=repo.findDriverByLicense(license);
+        DriverDTO dto=mapper.map(driver,DriverDTO.class);
+        return dto;
     }
 
 //    @Override

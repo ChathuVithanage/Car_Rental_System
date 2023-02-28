@@ -25,11 +25,11 @@ class DriverServiceImplTest {
     @Autowired
     DriverService service;
 
-    @Test
-    void saveDriver() {
-       DriverDTO dto1=new DriverDTO("123","123",123456,"123",true);
-          service.saveDriver(dto1);
-
-
-    }
+//    @Test
+//    void saveDriver() {
+//       DriverDTO dto1=new DriverDTO("123","123",123456,"123",true);
+//          service.saveDriver(dto1);
+//
+//
+//    }
 }

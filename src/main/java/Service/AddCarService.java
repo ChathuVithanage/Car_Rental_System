@@ -10,6 +10,6 @@ public interface AddCarService {
     public void saveCar(CarDTO dto);
     public void updateCar(CarDTO dto);
     public ArrayList<CarDTO> getAllCars();
-    void DeleteCar(String vehicleNo);
+    void deleteCar(String vehicleNo);
     public CarDTO searchCarWithVehicleNo(String vehicleNo);
 }

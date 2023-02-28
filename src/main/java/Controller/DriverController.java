@@ -22,11 +22,18 @@ public class DriverController {
         return new ResponseUtil("OK","Successfully Registered.!",null);
     }
 
-    @DeleteMapping(params = {"license"})
-    public ResponseUtil deleteDriver(@RequestParam String license){
+//    @DeleteMapping(params = {"license"})
+//    public ResponseUtil deleteDriver(@RequestParam String license){
+//        service.deleteDriver(license);
+//        return new ResponseUtil("ok","deleteDriver",null);
+//    }
+
+    @DeleteMapping(params = "license")
+    public ResponseUtil deleteCustomer(@RequestParam String license) {
         service.deleteDriver(license);
-        return new ResponseUtil("OK","Successfully Deleted. :"+license ,null);
+        return new ResponseUtil("OK", "Successfully Deleted. :" + license, null);
     }
+
 
     @PutMapping
     public ResponseUtil updateDriver(@RequestBody DriverDTO dto){
@@ -39,8 +46,13 @@ public class DriverController {
         return new ResponseUtil("OK","Successfully Loaded. :" ,service.getAllDrivers());
     }
 
-    @GetMapping(path = "/{license}")
-    public ResponseUtil searchDriverByLicense(@PathVariable String license){
+//    @GetMapping(path = "/{license}")
+//    public ResponseUtil searchDriverByLicense(@PathVariable String license){
+//        return new ResponseUtil("OK","Successfully Loaded. :" ,service.searchDriverWithLicense(license));
+//    }
+//
+    @GetMapping(params = {"license"})
+    public ResponseUtil searchDriverByLicense(String license){
         return new ResponseUtil("OK","Successfully Loaded. :" ,service.searchDriverWithLicense(license));
     }
 

@@ -35,16 +35,17 @@
     <div class="container text-center">
 
 
+        <form id="CarRegister">
         <div class="row">
             <div class="col-2">
 
             </div>
-            <div class="col-8" style="background-color:  #ccccff; height: 70vh">
+            <div class="col-8" style="background-color:  #ccccff; height: 80vh">
 
                 <div class="row">
                 <div class="col-6">
                     <div class="mb-3" style="stroke: black; padding-top: 15px">
-                        <input class="form-control" id="txtRegId" type="text" name="regId" placeholder="RegId" style="border-color: darkslateblue" >
+                        <input class="form-control" id="txtVehicleNo" type="text" name="vehicleNo" placeholder="Vehicle No" style="border-color: darkslateblue" >
                     </div>
                 </div>
                 <div class="col-6">
@@ -71,7 +72,7 @@
                                 <div class="col">
                                     <div class="mb-3" style="stroke: black; padding-top: 5px">
                                         <label class="color" style="font-size: 15px">color</label>
-                                        <input class="form-control" id="txtColor" type="color" name="Color" placeholder="Color" style="border-color: darkslateblue; height: 38px" >
+                                        <input class="form-control" id="txtColor" type="color" name="color" placeholder="Color" style="border-color: darkslateblue; height: 38px" >
                                     </div>
                                 </div>
                                 <div class="col order-5">
@@ -80,9 +81,9 @@
                                     <label class="Type" style="font-size: 15px">Type</label>
                                     <select class="form-select" aria-label="Default select example">
                                         <option selected>select</option>
-                                        <option value="1">General</option>
-                                        <option value="2">Premium</option>
-                                        <option value="2">Luxury</option>
+                                        <option value="General">General</option>
+                                        <option value="Premium">Premium</option>
+                                        <option value="Luxury">Luxury</option>
                                     </select>
                                     </div>
 
@@ -91,7 +92,7 @@
 
                                     <div class="mb-3" style="stroke: black; padding-top: 5px">
                                         <label class="Passengers" style="font-size: 15px">Passengers</label>
-                                        <input class="form-control" id="txtPassengers" type="number" name="Passengers" placeholder="Passengers" style="border-color: darkslateblue" >
+                                        <input class="form-control" id="txtPassengers" type="number" name="passengers" placeholder="Passengers" style="border-color: darkslateblue" >
                                     </div>
                                 </div>
                             </div>
@@ -104,21 +105,19 @@
                                 <div class="mb-3" style="stroke: black; padding-top: 5px">
 
                                     <label class="Fuel Type" style="font-size: 15px">Fuel Type</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>select</option>
-                                        <option value="1">Petrol</option>
-                                        <option value="2">Diesel</option>
+                                    <select class="form-select" aria-label="Default select example" name="fuelType">
+                                        <option value="Petrol">Petrol</option>
+                                        <option value="Diesel">Diesel</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
                                 <div class="mb-3" style="stroke: black; padding-top: 5px">
 
-                                    <label class="Transmission" style="font-size: 15px">Fuel Type</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>select</option>
-                                        <option value="1">Manual</option>
-                                        <option value="2">Auto</option>
+                                    <label class="Transmission" style="font-size: 15px">Transmission</label>
+                                    <select class="form-select" aria-label="Default select example" name="transmission">
+                                        <option value="Manual">Manual</option>
+                                        <option value="Auto">Auto</option>
                                     </select>
                                 </div>
                             </div>
@@ -161,7 +160,7 @@
                             </div>
                             <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
                                 <div class="mb-3" style="stroke: black; padding-top: 8px">
-                                    <input class="form-control" id="txtFreeMileage1" type="text" name="freeMileage1" placeholder="Free Mileage(km)" style="border-color: darkslateblue" >
+                                    <input class="form-control" id="txtFreeMileage1" type="text" name="freeMileageForDay" placeholder="Free Mileage(km)" style="border-color: darkslateblue" >
                                 </div>
                             </div>
                         </div>
@@ -178,7 +177,7 @@
                             </div>
                             <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
                                 <div class="mb-3" style="stroke: black; padding-top: 8px">
-                                    <input class="form-control" id="txtFreeMileage2" type="text" name="freeMileage2" placeholder="Free Mileage(km)" style="border-color: darkslateblue" >
+                                    <input class="form-control" id="txtFreeMileage2" type="text" name="freeMileageForMonth" placeholder="Free Mileage(km)" style="border-color: darkslateblue" >
                                 </div>
                             </div>
                         </div>
@@ -187,9 +186,26 @@
 
                     <div class="col-6">
                     <div class="input-group mb-3">
-                        <input type="file" class="form-control" id="inputGroupFile02">
-                        <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                        <input class="form-control" id="txtImgOne" type="file" name="=ImgOne" placeholder="img_front" style="border-color: darkslateblue" >
                     </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <input class="form-control" id="txtImgTwo" type="file" name="=ImgTwo" placeholder="img_back" style="border-color: darkslateblue" >
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <input class="form-control" id="txtImgThree" type="file" name="=ImgThree" placeholder="img_side" style="border-color: darkslateblue" >
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                             <input class="form-control" id="txtImgFour" type="file" name="=ImgThree" placeholder="img_interior" style="border-color: darkslateblue" >
+                        </div>
                     </div>
 
                     <div class="row">
@@ -198,7 +214,7 @@
                     </div>
 
                     <div class="col-6">
-                        <button type="button" class="btn btn-secondary">Save Car</button>
+                        <button type="button" class="btn btn-secondary" id="saveCar">Save Car</button>
                     </div>
                     </div>
 
@@ -207,14 +223,38 @@
 
 
         </div>
-
+        </form>
 
     </div>
 
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<!--<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>-->
 <script src="https://kit.fontawesome.com/771f6b37f4.js" crossorigin="anonymous"></script>
+<script src="./jquery-3.6.1.min.js"></script>
+
+<script>
+
+    let baseUrl = "http://localhost:8080/Car_Rental_System_war/"
+
+    $("#saveCar").click(function (){
+        let formData = $("#CarRegister").serialize()
+        $.ajax({
+            url:baseUrl+"car",
+            method:"post",
+            dataType:"json",
+            data:formData,
+            success:function (res){
+                alert("save data");
+               // LoadAllCustomer();
+            }
+
+        })
+    })
+
+
+</script>
+
 </body>
 </html>

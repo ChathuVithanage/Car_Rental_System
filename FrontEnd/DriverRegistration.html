@@ -158,9 +158,8 @@
                                                     <div class="col-md-9 pe-5">
 
                                                         <select class="form-select" aria-label="Transmission" id="ddSelect" onchange="ddISelect();">
-                                                            <option selected>Available</option>
-                                                            <option value="1">Yes</option>
-                                                            <option value="2">No</option>
+                                                            <option value="Yes">Yes</option>
+                                                            <option value="No">No</option>
                                                         </select>
                                                         <br>
                                                         <input type="text" readonly="readonly" style="border-color: darkslateblue" name="available" id="txtDriverAvailable" >
@@ -228,6 +227,9 @@
 
 <script>
     let baseUrl = "http://localhost:8080/Car_Rental_System_war/"
+    LoadAllDriver();
+
+    //Driver save
 
     $("#saveDriver").click(function (){
         alert('weda')
@@ -239,10 +241,10 @@
             data:formData,
             success:function (res){
                 alert("save data");
-                LoadAllDriver()
+                LoadAllDriver();
             }
         })
-    })
+    });
 
     // $("#searchDriver").click(function (){
     //     alert('elama')
@@ -258,6 +260,8 @@
     //         }
     //     })
     // });
+
+    //Driver Search
 
     $("#searchDriver").click(function (){
         $.ajax({
@@ -279,6 +283,25 @@
         })
     });
 
+    //Delete Car
+    $('#DeleteDriver').click(function (){
+        alert($("#txtDriverLicense").val())
+        $.ajax({
+            url:baseUerlD+"driver?license=" + $("#txtDriverLicense").val(),
+            dataType: "json",
+            method:"delete",
+            success:function (res){
+                alert(res.message);
+                LoadAllDriver();
+            },
+            error:function (error){
+
+            }
+        })
+    });
+
+
+    //load Drivers
     function LoadAllDriver(){
         $.ajax({
             url:baseUrl+"driver",
@@ -291,19 +314,53 @@
         })
     };
 
+    //Update Drivers
+    $('#updateDriver').click(function (){
+        let driverJson={
+            license:$('#txtDriverLicense').val(),
+            name:$('#txtDriverName').val(),
+            address:$('#txtDriverAddress').val(),
+            contact:$('#txtDriverContact').val(),
+            available:$('#txtDriverAvailable').val()
+        };
+        $.ajax({
+            url:baseUrl+"driver",
+            method:"put",
+            data:JSON.stringify(driverJson),
+            dataType:"jason",
+            contentType:"application/json",
+            async:false,
+            success:function (res){
+                alert(res.message);
+                LoadAllDriver();
+            },
+            error: function (error){
+                alert(JSON.parse(error.responseText).message)
+            }
+        })
+    });
+
+    $('#ddSelect').click(function (){
+        let vl = $('#ddSelect').val()
+
+        $('#txtDriverAvailable').val(vl)
+    });
+
+
+
+
+
 </script>
 
 <!--<script type="text/javascript" src="jquery-3.6.1.min.js"></script>-->
 
-
-
-<script>
-    function ddISelect(){
-        var d = document.getElementById("ddSelect")
-        var display = d.options[d.selectedIndex].text;
-        document.getElementById("txtDriverAvailable").value = display;
-    }
-</script>
+<!--<script>-->
+<!--    function ddISelect(){-->
+<!--        var d = document.getElementById("ddSelect")-->
+<!--        var display = d.options[d.selectedIndex].text;-->
+<!--        document.getElementById("txtDriverAvailable").value = display;-->
+<!--    }-->
+<!--</script>-->
 
 
 </body>

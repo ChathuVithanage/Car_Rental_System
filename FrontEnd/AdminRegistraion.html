@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Register</title>
+  <link href="styleSheet.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <link href="index.css" rel="stylesheet">
+</head>
+
+<style>
+  #admin_Registration{
+    width: 1536px;
+    height: 712px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 78%;
+  }
+
+  .table{
+    position: absolute;
+    width: 70%;
+    top: 60%;
+    left: 29%;
+  }
+
+</style>
+
+
+<body>
+
+<section id="admin_Registration"  >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="padding-left: 15%">
+        <h5 class="modal-title" id="exampleModalLabel1" style="font-size: 30px; left: 35px; padding-top: 58px">Admin Registration</h5>
+      </div>
+
+
+      <form id="AdminRegister">
+        <div class="modal-body">
+
+          <section style="width: 630px; padding-left: 110px; padding-top: 50px;" >
+            <div class="mb-3" style="stroke: black">
+              <input class="form-control" id="txtAdminId" type="text" name="nic" placeholder="Nic" style="border-color: darkslateblue" >
+            </div>
+            <div class="mb-3">
+              <input class="form-control" id="txtAdminName" multiple type="text" name="name" placeholder="Name" style="border-color: darkslateblue">
+            </div>
+            <div class="mb-3">
+              <input class="form-control" id="txtAdminUserName" type="text" name="userName" placeholder="userName" style="border-color: darkslateblue">
+            </div>
+            <div class="mb-3">
+              <input class="form-control form-control-sm" id="txtAdminPassword" type="text" name="password" placeholder="Password" style="border-color: darkslateblue">
+            </div>
+            <div class="mb-3">
+              <input class="form-control form-control-sm" id="txtAdminMail" type="text" name="email" placeholder="email" style="border-color: darkslateblue">
+            </div>
+
+            <div aria-label="Basic mixed styles example" class="btn-group" role="group">
+              <button class="btn btn-danger" type="button" id="AdminDelete"  > Delete</button>
+              <button class="btn btn-warning" type="button" id="AdminUpdate"  > Update</button>
+              <button class="btn btn-success " type="button" id="clearDetails" > Clear</button>
+              <button class="btn btn-info " type="button" id="searchAdmin"  >search </button>
+            </div>
+          </section>
+        </div>
+      </form>
+
+
+      <div style="padding-top: 26px; padding-left: 450px;">
+        <!--                <button class="btn btn-secondary" type="button">Close</button>-->
+        <button class="btn btn-primary" type="button" id="saveAdmin">Register Admin</button>
+      </div>
+
+      <div class="table"  >
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">NIC</th>
+            <th scope="col">email</th>
+            <th scope="col">Name</th>
+            <th scope="col">userName</th>
+            <th scope="col">Password</th>
+
+          </tr>
+          </thead>
+          <tbody class="adminTable">
+          <tr>
+          </tr>
+          <tr>
+          </tr>
+          <tr>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+  </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<!--<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>-->
+<script src="./jquery-3.6.1.min.js"></script>
+
+
+<script>
+  let baseUrl = "http://localhost:8080/Car_Rental_System_war/"
+
+  $("#saveAdmin").click(function (){
+    let formData = $("#AdminRegister").serialize()
+    $.ajax({
+      url:baseUrl+"adminReg",
+      method:"post",
+      dataType:"json",
+      data:formData,
+      success:function (res){
+        alert("save data");
+        //LoadAllCustomer();
+      }
+
+    })
+  });
+
+  //Admin search
+  $("#searchAdmin").click(function (){
+
+    $.ajax({
+      url:baseUrl+"adminReg?nic=" + $("#txtAdminId").val(),
+      dataType:"json",
+      method: "get",
+      success:function (res){
+        $("#txtAdminName").val(res.data.name)
+        $("#txtAdminUserName").val(res.data.username)
+        $("#txtAdminPassword").val(res.data.password)
+        $("#txtAdminMail").val(res.data.email)
+      }
+    })
+  });
+
+</script>
+
+
+</body>
+</html>
