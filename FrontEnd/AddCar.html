@@ -79,7 +79,7 @@
                                     <div class="mb-3" style="stroke: black; padding-top: 5px">
 
                                     <label class="Type" style="font-size: 15px">Type</label>
-                                    <select class="form-select" aria-label="Default select example">
+                                    <select class="form-select" aria-label="Default select example" name="type">
                                         <option selected>select</option>
                                         <option value="General">General</option>
                                         <option value="Premium">Premium</option>
@@ -143,7 +143,7 @@
                             <div class="col order-2">
                                 <div class="col-6" style="padding-top: 12px">
                                 <div class="form-check form-switch" >
-                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" >
+                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" name="isAvailable" >
                                     <label class="form-check-label" for="flexSwitchCheckDefault">Is Available</label>
                                 </div>
                                 </div>
@@ -172,7 +172,7 @@
                         <div class="row">
                             <div class="col-sm-5 col-md-6">
                                 <div class="mb-3" style="stroke: black; padding-top: 8px">
-                                    <input class="form-control" id="txtMonthlyRate" type="text" name="dailyRate" placeholder="Monthly Rate" style="border-color: darkslateblue" >
+                                    <input class="form-control" id="txtMonthlyRate" type="text" name="monthlyRate" placeholder="Monthly Rate" style="border-color: darkslateblue" >
                                 </div>
                             </div>
                             <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0">
@@ -186,25 +186,25 @@
 
                     <div class="col-6">
                     <div class="input-group mb-3">
-                        <input class="form-control" id="txtImgOne" type="file" name="=ImgOne" placeholder="img_front" style="border-color: darkslateblue" >
+                        <input class="form-control" id="txtImgOne" type="file" name="file1" placeholder="img_front" style="border-color: darkslateblue" >
                     </div>
                     </div>
 
                     <div class="col-6">
                         <div class="input-group mb-3">
-                            <input class="form-control" id="txtImgTwo" type="file" name="=ImgTwo" placeholder="img_back" style="border-color: darkslateblue" >
+                            <input class="form-control" id="txtImgTwo" type="file" name="file2" placeholder="img_back" style="border-color: darkslateblue" >
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="input-group mb-3">
-                            <input class="form-control" id="txtImgThree" type="file" name="=ImgThree" placeholder="img_side" style="border-color: darkslateblue" >
+                            <input class="form-control" id="txtImgThree" type="file" name="file3" placeholder="img_side" style="border-color: darkslateblue" >
                         </div>
                     </div>
 
                     <div class="col-6">
                         <div class="input-group mb-3">
-                             <input class="form-control" id="txtImgFour" type="file" name="=ImgThree" placeholder="img_interior" style="border-color: darkslateblue" >
+                             <input class="form-control" id="txtImgFour" type="file" name="file4" placeholder="img_interior" style="border-color: darkslateblue" >
                         </div>
                     </div>
 
@@ -215,6 +215,8 @@
 
                     <div class="col-6">
                         <button type="button" class="btn btn-secondary" id="saveCar">Save Car</button>
+                        <button type="button" class="btn btn-secondary" id="updateCar">Update Car</button>
+                        <button type="button" class="btn btn-secondary" id="loadCar">loadAll</button>
                     </div>
                     </div>
 
@@ -238,20 +240,87 @@
 
     let baseUrl = "http://localhost:8080/Car_Rental_System_war/"
 
-    $("#saveCar").click(function (){
-        let formData = $("#CarRegister").serialize()
-        $.ajax({
-            url:baseUrl+"car",
-            method:"post",
-            dataType:"json",
-            data:formData,
-            success:function (res){
-                alert("save data");
-               // LoadAllCustomer();
-            }
+    // form eke id eka, file chooser 4 id, name tika samana wenna one  controller eke @RequestParam
+    function clearCarRegister() {
+        $("form#CarRegister")[0].reset();
+    }
+    function prepareCarForm(url, method) {
+        var form = $("#CarRegister").serializeArray();
+        var formData = new FormData();
+        $.each(form, function (key, input) {
+            formData.append(input.name, input.value);
+        });
 
-        })
-    })
+        formData.append("file1", $("#txtImgOne")[0].files[0]);
+        formData.append("file2", $("#txtImgTwo")[0].files[0]);
+        formData.append("file3", $("#txtImgThree")[0].files[0]);
+        formData.append("file4", $("#txtImgFour")[0].files[0]);
+        $.ajax({
+            url: baseUrl + url,
+            method: method,
+            processData: false,
+            contentType: false,
+            dataType: "json",
+            data: formData,
+            success: function (res) {
+                alert(res.message);
+                clearCarRegister();
+                // loadAllCars();
+            },
+            error: function (error) {
+                alert(error);
+            },
+        });
+    }
+    // car-add
+    $("#saveCar").click(function () {
+        prepareCarForm("car/save", "post");
+    });
+    // car-update
+    $("#updateCar").click(function () {
+        prepareCarForm("car/update", "post");
+    });
+
+
+    // function clearCarRegister() {
+    //     $("form#CarRegister")[0].reset();
+    // }
+    // function prepareCarForm(url, method) {
+    //     var form = $("#CarRegister").serializeArray();
+    //     var formData = new FormData();
+    //     $.each(form, function (key, input) {
+    //         formData.append(input.name, input.value);
+    //     });
+    //
+    //     formData.append("file1", $("#formFileSm1")[0].files[0]);
+    //     formData.append("file2", $("#formFileSm2")[0].files[0]);
+    //     formData.append("file3", $("#formFileSm3")[0].files[0]);
+    //     formData.append("file4", $("#formFileSm4")[0].files[0]);
+    //     $.ajax({
+    //         url: baseUrl + url,
+    //         method: method,
+    //         processData: false,
+    //         contentType: false,
+    //         dataType: "json",
+    //         data: formData,
+    //         success: function (res) {
+    //             alert(res.message);
+    //             clearCarRegister();
+    //             loadAllCars();
+    //         },
+    //         error: function (error) {
+    //             alert(error);
+    //         },
+    //     });
+    // }
+    // // car-add
+    // $("#saveCar").click(function () {
+    //     prepareCarForm("car/save", "post");
+    // });
+    // // car-update
+    // $("#updateCar").click(function () {
+    //     prepareCarForm("car/update", "post");
+    // });
 
 
 </script>

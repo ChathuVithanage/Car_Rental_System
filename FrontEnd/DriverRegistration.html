@@ -287,7 +287,7 @@
     $('#DeleteDriver').click(function (){
         alert($("#txtDriverLicense").val())
         $.ajax({
-            url:baseUerlD+"driver?license=" + $("#txtDriverLicense").val(),
+            url:baseUrl+"driver?license=" + $("#txtDriverLicense").val(),
             dataType: "json",
             method:"delete",
             success:function (res){

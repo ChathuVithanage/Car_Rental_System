@@ -19,9 +19,9 @@ public class AddCarController {
     @Autowired
     AddCarService addCarService;
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/save", method = RequestMethod.POST, consumes = "multipart/form-data")
     public ResponseUtil saveCar(
-            @RequestParam() String vehicleNo,
+            @RequestParam String vehicleNo,
             @RequestParam String brand,
             @RequestParam String model,
             @RequestParam int mileage,
@@ -36,14 +36,14 @@ public class AddCarController {
             @RequestParam BigDecimal dailyRate,
             @RequestParam BigDecimal monthlyRate,
             @RequestParam int freeMileageForMonth,
-            @RequestParam int freeMileageForDay
-//            @RequestPart("file1") MultipartFile file1,
-//            @RequestPart("file2") MultipartFile file2,
-//            @RequestPart("file3") MultipartFile file3,
-//            @RequestPart("file4") MultipartFile file4
+            @RequestParam int freeMileageForDay,
+           @RequestPart("file1") MultipartFile file1,
+           @RequestPart("file2") MultipartFile file2,
+           @RequestPart("file3") MultipartFile file3,
+           @RequestPart("file4") MultipartFile file4
     ) throws IOException {
 
-        CarDTO dto = new CarDTO(vehicleNo,brand,model,mileage,color,passengers,type,fuelType,transmission,serviceMileage,isAvailable,extraPrice,dailyRate,monthlyRate,freeMileageForMonth,freeMileageForDay);
+        CarDTO dto = new CarDTO(vehicleNo,brand,model,mileage,color,passengers,type,fuelType,transmission,serviceMileage,isAvailable,extraPrice,dailyRate,monthlyRate,freeMileageForMonth,freeMileageForDay,file1.getBytes(),file2.getBytes(),file3.getBytes(),file4.getBytes());
         addCarService.saveCar(dto);
         return new ResponseUtil("OK","Successfully Registered.!",null);
 
@@ -67,10 +67,10 @@ public class AddCarController {
             @RequestParam BigDecimal monthlyRate,
             @RequestParam int freeMileageForMonth,
             @RequestParam int freeMileageForDay,
-            @RequestPart("file1") MultipartFile file1,
-            @RequestPart("file2") MultipartFile file2,
-            @RequestPart("file3") MultipartFile file3,
-            @RequestPart("file4") MultipartFile file4
+            @RequestPart(value = "file1", required = false) MultipartFile file1,
+            @RequestPart(value = "file2", required = false) MultipartFile file2,
+            @RequestPart(value = "file3", required = false) MultipartFile file3,
+            @RequestPart(value = "file4", required = false) MultipartFile file4
     ) throws IOException {
 
         CarDTO dto = new CarDTO(vehicleNo,brand,model,mileage,color,passengers,type,fuelType,transmission,serviceMileage,isAvailable,extraPrice,dailyRate,monthlyRate,freeMileageForMonth,freeMileageForDay,file1.getBytes(),file2.getBytes(),file3.getBytes(),file4.getBytes());
@@ -91,15 +91,16 @@ public class AddCarController {
         return new ResponseUtil("OK","Successful!",data);
     }
 
-//    @RequestMapping(value = "/find", method = RequestMethod.GET)
-//    public ResponseUtil getAllCar(@RequestParam String vehicleNo){
-//        CarDTO data = AddCarService.findCarByVehicleNo(vehicleNo);
+    @RequestMapping(value = "/find", method = RequestMethod.GET)
+    public ResponseUtil getAllCar(@RequestParam String vehicleNo){
+//        CarDTO data = addCarService.findCarByVehicleNo(vehicleNo);
 //        return new ResponseUtil("OK","Successful!",data);
-//    }
-//
+        return null;
+    }
+
 //    @RequestMapping(value = "/countCarsByAvailabilityIsTrue", method = RequestMethod.GET)
 //    public ResponseUtil countCarsByAvailabilityIsTrue(){
-//        return new ResponseUtil("OK","Successful!",AddCarService.countCarsByAvailabilityIsTrue());
+//        return new ResponseUtil("OK","Successful!",addCarService.countCarsByAvailableIsTrue());
 //    }
 //
 //    @RequestMapping(value = "/countCarsScheduled", method = RequestMethod.GET)

@@ -108,50 +108,49 @@
   </section>
 
 <!--Customer Login-->
-<!--    <form class="col-2 " id="CustomerForms" >-->
-<!--        <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" tabindex="-1" id="customerForm" >-->
-<!--            <div class="modal-dialog">-->
-<!--                <div class="modal-content">-->
-<!--                    <div class="modal-header" style="background-color: #46b2ff ; padding-left: 45%">-->
-<!--                        <h5 class="modal-title" id="exampleModalLabel1">LOG IN </h5>-->
-<!--                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>-->
-<!--                    </div>-->
-<!--                    <div class="modal-body">-->
-<!--                        <section>-->
-<!--                            <div class="mb-3">-->
+    <form class="col-2 " id="CustomerForms" >
+        <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" tabindex="-1" id="customerForm" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #46b2ff ; padding-left: 45%">
+                        <h5 class="modal-title" id="exampleModalLabel1">LOG IN </h5>
+                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                    </div>
+                    <div class="modal-body">
+                        <section>
+                            <div class="mb-3">
 
-<!--                                <input class="form-control" id="txtCustomerId" type="text" name="cusID" placeholder="Nic">-->
-<!--                            </div>-->
-<!--                            <div class="mb-3">-->
+                                <input class="form-control" id="txtLoginName" type="text" name="loginName" placeholder="Nic">
+                            </div>
+                            <div class="mb-3">
 
-<!--                                <input class="form-control form-control-sm" id="txtCustomerPassword" type="text" name="password" placeholder="Password">-->
-<!--                            </div>-->
-<!--                            <div class="mb-3">-->
-<!--                                <div class="col" id="colD">-->
-<!--                                    <a href="#!">Forget Password?</a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div style="text-align: center">-->
-<!--                                <button type="button" class="btn btn-primary btn btn-block mb-3" style="padding-left: 70px; padding-right: 70px">Log In</button>-->
-<!--                            </div>-->
+                                <input class="form-control form-control-sm" id="txtLoginPassword" type="text" name="loginPassword" placeholder="Password">
+                            </div>
+                            <div class="mb-3">
+                                <div class="col" id="colD">
+                                    <a href="#!">Forget Password?</a>
+                                </div>
+                            </div>
+                            <div style="text-align: center">
+                                <button type="button" class="btn btn-primary btn btn-block mb-3" id="btnCustomerLogin" style="padding-left: 70px; padding-right: 70px"><a href="BookingDashboard.html">Log In</a></button>
+                            </div>
 
-<!--                        </section>-->
-<!--                    </div>-->
-<!--                    <div class="modal-footer text-center">-->
-<!--                        <p>-->
-<!--                            "Not a member?"-->
-<!--                            <a href="CustomerRegistration.html">Register</a>-->
-<!--                        </p>-->
-<!--                        <p>or sign up with:</p>-->
-<!--&lt;!&ndash;                        <button type="button" class="btn btn-link btn-floating mx-1"></button>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button type="button" class="btn btn-link btn-floating mx-1"></button>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <button type="button" class="btn btn-link btn-floating mx-1"></button>&ndash;&gt;-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </form>-->
-
+                        </section>
+                    </div>
+                    <div class="modal-footer text-center">
+                        <p>
+                            "Not a member?"
+                            <a href="CustomerRegistration.html">Register</a>
+                        </p>
+                        <p>or sign up with:</p>
+<!--                        <button type="button" class="btn btn-link btn-floating mx-1"></button>-->
+<!--                        <button type="button" class="btn btn-link btn-floating mx-1"></button>-->
+<!--                        <button type="button" class="btn btn-link btn-floating mx-1"></button>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 
 
 <!--    Admin Login-->
@@ -288,7 +287,65 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
 
+<script>
 
+    $('#btnCustomerLogin').click(function (){
+        alert("login btn");
+
+        let userName = $('#txtLoginName').val();
+        let password = $('#txtLoginPassword').val();
+
+        let customer = findCustomerObj(userName);
+        console.log("customer Obj ")
+        console.log(customer);
+
+        loggedCus=customer.nic;
+        console.log("logged cus"+ loggedCus);
+
+        if (password==customer.password){
+            alert("Successfully logged");
+        }
+
+        $('#profileCard').empty()
+        var profileCard = '<h4 class="card-title">' + customer.name +'</h4>\n' +
+            '                            <p class="mb-sm-1"><b>NIC:</b>' + customer.nic +'</p>\n' +
+            '                            <p class="mb-sm-1"><b>Address:</b>' + customer.address +'</p>\n' +
+            '                            <p class="mb-sm-1"><b>License :</b>' + customer.license +'</p>\n' +
+            '                            <p class="mb-sm-1"><b>Contact :</b>' + customer.contact +'</p>'
+
+        $('#profileCard').append(profileCard);
+    });
+
+    function findCustomerObj(userName){
+        alert("find cus Obj")
+
+        let response="";
+        $.ajax({
+            url: baseUrl+"customer?nic="+userName,
+            dataType:"json",
+            async:false,
+            success:function (res) {
+                console.log("success : "+userName);
+                res.data.filter((c)=>{
+
+                    console.log("username :"+c.nic);
+                    console.log("password :"+c.password);
+                    console.log("password :"+c.name);
+
+                    if (c.nic==userName){
+                        response= c;
+                    }
+
+                    console.log(response);
+
+                });
+
+            }
+        })
+        return response;
+    }
+
+</script>
 
 </body>
 </html>

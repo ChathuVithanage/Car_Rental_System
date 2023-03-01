@@ -57,17 +57,18 @@ public class AddCarServiceImpl implements AddCarService {
         return mapper.map(repo.findAll(),new TypeToken<ArrayList<CarDTO>>(){}.getType());
     }
 
-//    @Override
-//    public CarDTO findCarByVehicleNo(String vehicleNo) {
+    @Override
+    public ArrayList<CarDTO> findCarByVehicleNo(){
 //        return mapper.map(repo.findCarByVehicleNo(vehicleNo),CarDTO.class);
-//    }
-//
+        return null;
+    }
+
 //
 //    @Override
-//    public int countCarsByAvailabilityIsTrue() {
-//        return repo.countCarsByAvailabilityIsTrue();
+//    public int countCarsByAvailableIsTrue() {
+////        return repo.countCarsByAvailableIsTrue();
 //    }
-//
+
 //    @Override
 //    public int countCarsScheduled() {
 //        return repo.countCarsScheduled();

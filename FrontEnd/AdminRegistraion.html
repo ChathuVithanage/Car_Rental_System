@@ -49,8 +49,9 @@
               <input class="form-control" id="txtAdminName" multiple type="text" name="name" placeholder="Name" style="border-color: darkslateblue">
             </div>
             <div class="mb-3">
-              <input class="form-control" id="txtAdminUserName" type="text" name="userName" placeholder="userName" style="border-color: darkslateblue">
+              <input class="form-control" id="txtAdminUserName" multiple type="text" name="userName" placeholder="userName" style="border-color: darkslateblue">
             </div>
+
             <div class="mb-3">
               <input class="form-control form-control-sm" id="txtAdminPassword" type="text" name="password" placeholder="Password" style="border-color: darkslateblue">
             </div>
@@ -79,10 +80,10 @@
           <thead>
           <tr>
             <th scope="col">NIC</th>
-            <th scope="col">email</th>
             <th scope="col">Name</th>
             <th scope="col">userName</th>
             <th scope="col">Password</th>
+            <th scope="col">email</th>
 
           </tr>
           </thead>
@@ -110,6 +111,7 @@
 
 <script>
   let baseUrl = "http://localhost:8080/Car_Rental_System_war/"
+  LoadAllAdmin();
 
   $("#saveAdmin").click(function (){
     let formData = $("#AdminRegister").serialize()
@@ -120,6 +122,7 @@
       data:formData,
       success:function (res){
         alert("save data");
+        LoadAllAdmin();
         //LoadAllCustomer();
       }
 
@@ -138,6 +141,58 @@
         $("#txtAdminUserName").val(res.data.username)
         $("#txtAdminPassword").val(res.data.password)
         $("#txtAdminMail").val(res.data.email)
+      }
+    })
+  });
+
+  //loadAll
+  function LoadAllAdmin(){
+    $.ajax({
+      url:baseUrl+"adminReg",
+      success:function (res){
+        $('.adminTable').empty();
+        for(let i=0;i<res.data.length;i++){
+          $('.adminTable').append(`<tr><td>`+res.data[i].nic +`</td><td>`+res.data[i].name+`</td><td>`+res.data[i].username+`</td><td>`+res.data[i].password+`</td><td>`+res.data[i].email+`</td></tr>`)
+        }
+      }
+    })
+  };
+
+  //update
+  $('#AdminUpdate').click(function (){
+    let adminRegJson={
+      nic:$('#txtAdminId').val(),
+      name:$('#txtAdminName').val(),
+      license:$('#txtAdminUserName').val(),
+      address:$('#txtAdminPassword').val(),
+      contact:$('#txtAdminMail').val()
+    };
+    $.ajax({
+      url:baseUrl+"adminReg",
+      method:"put",
+      data:JSON.stringify(adminRegJson),
+      dataType:"jason",
+      contentType:"application/json",
+      async:false,
+      success:function (){
+        alert('update');
+        LoadAllAdmin();
+
+      }
+    })
+  });
+  $('#AdminDelete').click(function (){
+    alert($("#txtAdminId").val())
+    $.ajax({
+      url:baseUrl+"adminReg?nic=" + $("#txtAdminId").val(),
+      dataType: "json",
+      method:"delete",
+      success:function (res){
+        alert(res.message);
+        LoadAllAdmin();
+      },
+      error:function (error){
+
       }
     })
   });

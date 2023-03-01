@@ -12,4 +12,7 @@ public interface AddCarService {
     public ArrayList<CarDTO> getAllCars();
     void deleteCar(String vehicleNo);
     public CarDTO searchCarWithVehicleNo(String vehicleNo);
+
+//    int countCarsByAvailableIsTrue();
+    ArrayList<CarDTO> findCarByVehicleNo();
 }

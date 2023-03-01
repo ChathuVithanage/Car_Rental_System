@@ -32,32 +32,27 @@ public class CarDTO{
     private BigDecimal monthlyRate;
     private int freeMileageForDay;
     private int freeMileageForMonth;
-
-    @Lob
     private byte[] img_front;
-    @Lob
     private byte[] img_back;
-    @Lob
     private byte[] img_side;
-    @Lob
     private byte[] img_interior;
 
-    public CarDTO(String vehicleNo, String brand, String model, int mileage, String color, int passengers, String type, String fuelType, String transmission, int serviceMileage, boolean isAvailable, BigDecimal extraPrice, BigDecimal dailyRate, BigDecimal monthlyRate, int freeMileageForDay, int freeMileageForMonth) {
-        this.vehicleNo = vehicleNo;
-        this.brand = brand;
-        this.model = model;
-        this.mileage = mileage;
-        this.color = color;
-        this.passengers = passengers;
-        this.type = type;
-        this.fuelType = fuelType;
-        this.transmission = transmission;
-        this.serviceMileage = serviceMileage;
-        this.isAvailable = isAvailable;
-        this.extraPrice = extraPrice;
-        this.dailyRate = dailyRate;
-        this.monthlyRate = monthlyRate;
-        this.freeMileageForDay = freeMileageForDay;
-        this.freeMileageForMonth = freeMileageForMonth;
-    }
+//    public CarDTO(String vehicleNo, String brand, String model, int mileage, String color, int passengers, String type, String fuelType, String transmission, int serviceMileage, boolean isAvailable, BigDecimal extraPrice, BigDecimal dailyRate, BigDecimal monthlyRate, int freeMileageForDay, int freeMileageForMonth) {
+//        this.vehicleNo = vehicleNo;
+//        this.brand = brand;
+//        this.model = model;
+//        this.mileage = mileage;
+//        this.color = color;
+//        this.passengers = passengers;
+//        this.type = type;
+//        this.fuelType = fuelType;
+//        this.transmission = transmission;
+//        this.serviceMileage = serviceMileage;
+//        this.isAvailable = isAvailable;
+//        this.extraPrice = extraPrice;
+//        this.dailyRate = dailyRate;
+//        this.monthlyRate = monthlyRate;
+//        this.freeMileageForDay = freeMileageForDay;
+//        this.freeMileageForMonth = freeMileageForMonth;
+//    }
 }
