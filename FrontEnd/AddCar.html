@@ -79,7 +79,7 @@
                                     <div class="mb-3" style="stroke: black; padding-top: 5px">
 
                                     <label class="Type" style="font-size: 15px">Type</label>
-                                    <select class="form-select" aria-label="Default select example" name="type">
+                                    <select class="form-select" aria-label="Default select example" name="type" id="cmbType">
                                         <option selected>select</option>
                                         <option value="General">General</option>
                                         <option value="Premium">Premium</option>
@@ -105,7 +105,7 @@
                                 <div class="mb-3" style="stroke: black; padding-top: 5px">
 
                                     <label class="Fuel Type" style="font-size: 15px">Fuel Type</label>
-                                    <select class="form-select" aria-label="Default select example" name="fuelType">
+                                    <select class="form-select" aria-label="Default select example" name="fuelType" id="cmbFuelType">
                                         <option value="Petrol">Petrol</option>
                                         <option value="Diesel">Diesel</option>
                                     </select>
@@ -115,7 +115,7 @@
                                 <div class="mb-3" style="stroke: black; padding-top: 5px">
 
                                     <label class="Transmission" style="font-size: 15px">Transmission</label>
-                                    <select class="form-select" aria-label="Default select example" name="transmission">
+                                    <select class="form-select" aria-label="Default select example" name="transmission" id="cmbTransmission">
                                         <option value="Manual">Manual</option>
                                         <option value="Auto">Auto</option>
                                     </select>
@@ -215,6 +215,7 @@
 
                     <div class="col-6">
                         <button type="button" class="btn btn-secondary" id="saveCar">Save Car</button>
+                        <button type="button" class="btn btn-secondary" id="searchCar">search</button>
                         <button type="button" class="btn btn-secondary" id="updateCar">Update Car</button>
                         <button type="button" class="btn btn-secondary" id="loadCar">loadAll</button>
                     </div>
@@ -281,46 +282,75 @@
         prepareCarForm("car/update", "post");
     });
 
+    $("#searchCar").click(function (){
+        prepareCarForm("car/search", "get");
 
-    // function clearCarRegister() {
-    //     $("form#CarRegister")[0].reset();
-    // }
-    // function prepareCarForm(url, method) {
-    //     var form = $("#CarRegister").serializeArray();
-    //     var formData = new FormData();
-    //     $.each(form, function (key, input) {
-    //         formData.append(input.name, input.value);
-    //     });
-    //
-    //     formData.append("file1", $("#formFileSm1")[0].files[0]);
-    //     formData.append("file2", $("#formFileSm2")[0].files[0]);
-    //     formData.append("file3", $("#formFileSm3")[0].files[0]);
-    //     formData.append("file4", $("#formFileSm4")[0].files[0]);
-    //     $.ajax({
-    //         url: baseUrl + url,
-    //         method: method,
-    //         processData: false,
-    //         contentType: false,
-    //         dataType: "json",
-    //         data: formData,
-    //         success: function (res) {
-    //             alert(res.message);
-    //             clearCarRegister();
-    //             loadAllCars();
-    //         },
-    //         error: function (error) {
-    //             alert(error);
-    //         },
-    //     });
-    // }
-    // // car-add
-    // $("#saveCar").click(function () {
-    //     prepareCarForm("car/save", "post");
-    // });
-    // // car-update
-    // $("#updateCar").click(function () {
-    //     prepareCarForm("car/update", "post");
-    // });
+        $.ajax({
+            url:baseUrl+"car/save?vehicleNo=" + $("#txtVehicleNo").val(),
+            dataType:"json",
+            method: "get",
+            success:function (res){
+                $("#txtBrand").val(res.data.brand)
+                $("#txtModel").val(res.data.model)
+                $("#txtMileage").val(res.data.mileage)
+                $("#txtColor").val(res.data.color)
+                $("#cmbType").val(res.data.types)
+                $("#txtPassengers").val(res.data.passengers)
+                $("#cmbFuelType").val(res.data.fuelType)
+                $("#cmbTransmission").val(res.data.transmission)
+                $("#txtServiceMileage").val(res.data.serviceMileage)
+                $("#txtExtraPrice").val(res.data.extraPrice)
+                $("#flexSwitchCheckDefault").val(res.data.isAvailable)
+                $("#txtDailyRate").val(res.data.dailyRate)
+                $("#txtFreeMileage1").val(res.data.freeMileageForDay)
+                $("#txtMonthlyRate").val(res.data.monthlyRate)
+                $("#txtFreeMileage2").val(res.data.freeMileageForMonth)
+
+
+            }
+        })
+    });
+
+
+    function clearCarRegister() {
+        $("form#CarRegister")[0].reset();
+    }
+    function prepareCarForm(url, method) {
+        var form = $("#CarRegister").serializeArray();
+        var formData = new FormData();
+        $.each(form, function (key, input) {
+            formData.append(input.name, input.value);
+        });
+
+        formData.append("file1", $("#formFileSm1")[0].files[0]);
+        formData.append("file2", $("#formFileSm2")[0].files[0]);
+        formData.append("file3", $("#formFileSm3")[0].files[0]);
+        formData.append("file4", $("#formFileSm4")[0].files[0]);
+        $.ajax({
+            url: baseUrl + url,
+            method: method,
+            processData: false,
+            contentType: false,
+            dataType: "json",
+            data: formData,
+            success: function (res) {
+                alert(res.message);
+                clearCarRegister();
+                //loadAllCars();
+            },
+            error: function (error) {
+                alert(error);
+            },
+        });
+    }
+    // car-add
+    $("#saveCar").click(function () {
+        prepareCarForm("car/save", "post");
+    });
+    // car-update
+    $("#updateCar").click(function () {
+        prepareCarForm("car/update", "post");
+    });
 
 
 </script>

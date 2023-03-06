@@ -66,6 +66,16 @@ public class DriverServiceImpl implements DriverService {
         return dto;
     }
 
+    @Override
+    public DriverDTO findDriverRandomly(String date1, String date2) {
+        return mapper.map(repo.selectDriverRandomly(date1 ,date2),DriverDTO.class);
+    }
+
+    @Override
+    public DriverDTO findDriverByLicense(String license) {
+        return mapper.map(repo.findDriverByLicense(license),DriverDTO.class);
+    }
+
 //    @Override
 //    public DriverDTO searchDriverWithLicense(String license) {
 //        Optional<Driver> driver = repo.findDriverByLicense(li);

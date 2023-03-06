@@ -93,9 +93,14 @@ public class AddCarController {
 
     @RequestMapping(value = "/find", method = RequestMethod.GET)
     public ResponseUtil getAllCar(@RequestParam String vehicleNo){
-//        CarDTO data = addCarService.findCarByVehicleNo(vehicleNo);
-//        return new ResponseUtil("OK","Successful!",data);
-        return null;
+        CarDTO data = addCarService.findCarByVehicleNo(vehicleNo);
+        return new ResponseUtil("OK","Successful!",data);
+//        return null;
+    }
+
+    @GetMapping(params = {"NIC"})
+    public ResponseUtil searchCustomerByNIC(String vehicleNo){
+        return new ResponseUtil("OK","Successfully Loaded. :" ,addCarService.searchCarWithVehicleNo(vehicleNo));
     }
 
 //    @RequestMapping(value = "/countCarsByAvailabilityIsTrue", method = RequestMethod.GET)

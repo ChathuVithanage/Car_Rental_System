@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
@@ -16,11 +17,12 @@ import java.util.Date;
 @ToString
 public class Payment {
     @Id
+    private String bookingId;
     private String accountNo;
     private String paymentMethod;
     private String deduction;
     private String damageWeiver;
-    private String rent;
+    private BigDecimal rent;
     private Date date;
 
 }

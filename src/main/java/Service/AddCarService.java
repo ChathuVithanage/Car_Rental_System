@@ -14,5 +14,5 @@ public interface AddCarService {
     public CarDTO searchCarWithVehicleNo(String vehicleNo);
 
 //    int countCarsByAvailableIsTrue();
-    ArrayList<CarDTO> findCarByVehicleNo();
+    CarDTO findCarByVehicleNo(String regNo);
 }

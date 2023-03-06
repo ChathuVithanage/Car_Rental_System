@@ -12,4 +12,6 @@ public interface DriverService {
     public ArrayList<DriverDTO> getAllDrivers();
 
     public DriverDTO searchDriverWithLicense(String license);
+    DriverDTO findDriverRandomly(String date1, String date2);
+    DriverDTO findDriverByLicense(String license);
 }

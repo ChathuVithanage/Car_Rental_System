@@ -1,7 +1,9 @@
 package Service.Impl;
 
 import dto.CarDTO;
+import dto.CustomerDTO;
 import entity.Car;
+import entity.Customer;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +43,14 @@ public class AddCarServiceImpl implements AddCarService {
 
     @Override
     public CarDTO searchCarWithVehicleNo(String vehicleNo) {
-        return null;
+        if (!repo.existsById(vehicleNo)){
+            throw new RuntimeException("invalid id");
+
+        }
+        Car car = repo.findCarByVehicleNo(vehicleNo);
+        CarDTO map = mapper.map(car,CarDTO.class);
+        return map;
+
     }
 
     @Override
@@ -58,9 +67,8 @@ public class AddCarServiceImpl implements AddCarService {
     }
 
     @Override
-    public ArrayList<CarDTO> findCarByVehicleNo(){
-//        return mapper.map(repo.findCarByVehicleNo(vehicleNo),CarDTO.class);
-        return null;
+    public CarDTO findCarByVehicleNo(String regNo){
+        return mapper.map(repo.findCarByVehicleNo(regNo),CarDTO.class);
     }
 
 //

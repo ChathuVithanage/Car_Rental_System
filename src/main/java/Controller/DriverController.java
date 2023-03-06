@@ -50,6 +50,15 @@ public class DriverController {
 //    public ResponseUtil searchDriverByLicense(@PathVariable String license){
 //        return new ResponseUtil("OK","Successfully Loaded. :" ,service.searchDriverWithLicense(license));
 //    }
+
+    @RequestMapping(value = "/findRandom", method = RequestMethod.GET)
+    public ResponseUtil getDriverRandomly(@RequestParam String date1, @RequestParam String date2){
+//        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+//        LocalDate dt1 = LocalDate.parse(date1,dateTimeFormatter);
+//        LocalDate dt2 = LocalDate.parse(date2,dateTimeFormatter);
+        DriverDTO data = service.findDriverRandomly(date1,date2);
+        return new ResponseUtil("OK","Successful!",data);
+    }
 //
     @GetMapping(params = {"license"})
     public ResponseUtil searchDriverByLicense(String license){
