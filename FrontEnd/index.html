@@ -5,6 +5,7 @@
     <title>HomePage</title>
     <link href="styleSheet.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/771f6b37f4.js" crossorigin="anonymous"></script>
 
 
   <style>
@@ -14,6 +15,7 @@
       text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
     }
 
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
     @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
 
     .btn{
@@ -22,9 +24,9 @@
       font-weight: 0;
       font-size: 14px;
       color: #fff;
-      background-color: steelblue;
+      background-color: rgba(0,0,0,.4);
       padding: 10px 30px;
-      border: 2px solid #0066cc;
+      border: 2px solid orangered;
       box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
       border-radius: 50px;
       transition : 1000ms;
@@ -45,6 +47,308 @@
       border: solid 2px #0066cc;
     }
 
+    .btnSign{
+        font-family: Roboto, sans-serif;
+        font-weight: 0;
+        font-size: 14px;
+        color: black;
+        background-color: white;
+        padding: 10px 30px;
+        border: 2px solid gray;
+        box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+        border-radius: 50px;
+        transition : 1000ms;
+        transform: translateY(0);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .btnSign:hover{
+
+        transition : 1000ms;
+        padding: 10px 50px;
+        transform : translateY(-0px);
+        background-color: #fff;
+        color: firebrick;
+        border: solid 2px red;
+    }
+
+
+    .nav-link h5:hover{
+        color: firebrick;
+    }
+
+    /*footer*/
+    * {
+        font-family: Open Sans;
+    }
+
+    .footer-distributed{
+        background: #112E3B;
+        box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+        box-sizing: border-box;
+        width: 100%;
+        text-align: left;
+        font: bold 16px sans-serif;
+        padding: 55px 50px;
+    }
+
+    .footer-distributed .footer-left,
+    .footer-distributed .footer-center,
+    .footer-distributed .footer-right{
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    /* Footer left */
+
+    .footer-distributed .footer-left{
+        width: 40%;
+    }
+
+    /* The company logo */
+
+    .footer-distributed h3{
+        color:  #ffffff;
+        font: normal 36px 'Open Sans', cursive;
+        margin: 0;
+    }
+
+    .footer-distributed h3 span{
+        color:  lightseagreen;
+    }
+
+    /* Footer links */
+
+    .footer-distributed .footer-links{
+        color:  #ffffff;
+        margin: 20px 0 12px;
+        padding: 0;
+    }
+
+    .footer-distributed .footer-links a{
+        display:inline-block;
+        line-height: 1.8;
+        font-weight:400;
+        text-decoration: none;
+        color:  inherit;
+    }
+
+    .footer-distributed .footer-company-name{
+        color:  #222;
+        font-size: 14px;
+        font-weight: normal;
+        margin: 0;
+    }
+
+    /* Footer Center */
+
+    .footer-distributed .footer-center{
+        width: 35%;
+    }
+
+    .footer-distributed .footer-center i{
+        background-color:  #33383b;
+        color: #ffffff;
+        font-size: 25px;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 42px;
+        margin: 10px 15px;
+        vertical-align: middle;
+    }
+
+    .footer-distributed .footer-center i.fa-envelope{
+        font-size: 17px;
+        line-height: 38px;
+    }
+
+    .footer-distributed .footer-center p{
+        display: inline-block;
+        color: #ffffff;
+        font-weight:400;
+        vertical-align: middle;
+        margin:0;
+    }
+
+    .footer-distributed .footer-center p span{
+        display:block;
+        font-weight: normal;
+        font-size:14px;
+        line-height:2;
+    }
+
+    .footer-distributed .footer-center p a{
+        color:  lightseagreen;
+        text-decoration: none;;
+    }
+
+    .footer-distributed .footer-links a:before {
+        content: "|";
+        font-weight:300;
+        font-size: 20px;
+        left: 0;
+        color: #fff;
+        display: inline-block;
+        padding-right: 5px;
+    }
+
+    .footer-distributed .footer-links .link-1:before {
+        content: none;
+    }
+
+    /* Footer Right */
+
+    .footer-distributed .footer-right{
+        width: 20%;
+    }
+
+    .footer-distributed .footer-company-about{
+        line-height: 20px;
+        color:  #92999f;
+        font-size: 13px;
+        font-weight: normal;
+        margin: 0;
+    }
+
+    .footer-distributed .footer-company-about span{
+        display: block;
+        color:  #ffffff;
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .footer-distributed .footer-icons{
+        margin-top: 25px;
+    }
+
+    .footer-distributed .footer-icons a{
+        display: inline-block;
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+        background-color:  #33383b;
+        border-radius: 2px;
+
+        font-size: 20px;
+        color: #ffffff;
+        text-align: center;
+        line-height: 35px;
+
+        margin-right: 3px;
+        margin-bottom: 5px;
+    }
+
+    /* If you don't want the footer to be responsive, remove these media queries */
+
+    @media (max-width: 880px) {
+
+        .footer-distributed{
+            font: bold 14px sans-serif;
+        }
+
+        .footer-distributed .footer-left,
+        .footer-distributed .footer-center,
+        .footer-distributed .footer-right{
+            display: block;
+            width: 100%;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .footer-distributed .footer-center i{
+            margin-left: 0;
+        }
+
+    }
+
+    .fade-in-image { animation: fadeIn 2s; }
+
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+    }
+
+    .footer-center div p{
+        font-size: 20px;
+        color: black;
+    }
+
+    .btnLog {
+        transition-duration: 0.4s;
+        border-radius: 12px;
+        border-color: #0066cc;
+    }
+
+    .btnLog:hover {
+        background-color: royalblue; /* Green */
+        color: white;
+    }
+
+    .about-list ul li i {
+        margin-right: 7px;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        border-radius: 2px;
+        background: #ec3323 none repeat scroll 0 0;
+        color: #fff;
+        line-height: 20px;
+        font-size: 12px;
+    }
+
+
+                                                           /* CSS */
+   .btnLog{
+       background-color: #0078d0;
+       border: 0;
+       border-radius: 15px;
+       color: #fff;
+       cursor: pointer;
+       display: inline-block;
+       font-family: system-ui,-apple-system,system-ui,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
+       font-size: 18px;
+       font-weight: 600;
+       outline: 0;
+       padding: 10px 10px;
+       position: relative;
+       text-align: center;
+       transition: all .3s;
+       user-select: none;
+       -webkit-user-select: none;
+       touch-action: manipulation;
+   }
+
+    .btnLog:before {
+        background-color: initial;
+        background-image: linear-gradient(#fff 0, rgba(255, 255, 255, 0) 100%);
+        border-radius: 15px;
+        content: "";
+        height: 35%;
+        left: 4%;
+        opacity: .5;
+        position: absolute;
+        top: 0;
+        transition: all .3s;
+        width: 60%;
+    }
+
+    .btnLog:hover {
+        box-shadow: rgba(255, 255, 255, .2) 0 3px 15px inset, rgba(0, 0, 0, .1) 0 3px 5px, rgba(0, 0, 0, .1) 0 10px 13px;
+        transform: scale(1.05);
+    }
+
+    @media (min-width: 768px) {
+        .btnLog{
+            padding: 10px 40px;
+        }
+    }
+
 
 
 
@@ -54,19 +358,22 @@
 <body>
 
 <header class="sticky-top">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary " style="background-color: lightslategrey">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary " style="background-color: #2c3945; height: 55px; ">
+      <img src="assest/classic-car.png" class="logo" style="width: 90px">
+      <label style="width: 96px"><h4 style="color: deepskyblue;     font-size: 1.4rem; text-shadow: 1px 1px 1px lightskyblue, 0 0 25px white;">Car Vista</h4></label>
+
     <div class="container-fluid">
       <a class="navbar-brand" href="#"></a>
 
       <div class="nav justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active fw-bold" aria-current="page" href="#" style="font-size: 18px; padding-left: 18px; padding-right: 18px">Home</a>
-          <a class="nav-link fw-bold" href="#" style="font-size: 18px; padding-left: 18px; padding-right: 18px">Car</a>
-          <a class="nav-link fw-bold" href="#aboutSection" style="font-size: 18px;padding-left: 18px; padding-right: 18px">About Us</a>
+            <a class="nav-link active fw-bold" aria-current="page" href="#" style=" padding-left: 18px; padding-right: 25px; color: white"><h5>Home</h5></a>
+            <a class="nav-link fw-bold" href="BookingDashboard.html" style=" padding-left: 18px; padding-right: 25px; color: white"><h5>Car</h5></a>
+            <a class="nav-link fw-bold" href="#aboutUs" style="padding-left: 18px; padding-right: 25px; color: white"><h5>About Us</h5></a>
           <div class="dropdown">
-            <a class="nav-link fw-bold text-decoration-underline btn btn-secondary dropdown-toggle" href="#" style="font-size: 17px; padding-left: 24px; padding-right: 18px" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign In</a>
+            <a class="nav-link fw-bold text-decoration-underline btnSign btn-secondary dropdown-toggle" href="#" style="font-size: 17px; padding-left: 24px; padding-right: 25px" role="button" data-bs-toggle="dropdown" aria-expanded="false">Sign In</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#" data-bs-target="#customerForm" data-bs-toggle="modal">Customer SignIn</a></li>
+<!--              <li><a class="dropdown-item" href="#" data-bs-target="#customerForm" data-bs-toggle="modal">Customer SignIn</a></li>-->
                 <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#adminForm">Admin SignIn</a></li>
               <!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
             </ul>
@@ -83,15 +390,13 @@
 
   <section class="home d-flex  justify-content-center">
 
-
-
     <div class="main_tp position-absolute mt-5 d-flex flex-column justify-content-end home-text " style="width: 80vw">
       <h1 class="text-center pt-5" >Search and Find Your Best Car Rental with easy way</h1><br>
-      <p class="text-center text-dark pb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur consequatur impedit inventore magnam necessitatibus nisi nobis officia quae quaerat, sunt, temporibus ut vel voluptatum? Adipisci consectetur itaque magnam odio tempore.</p>
+        <p class="text-center text-dark pb-5" style="font-size: 20px">Before we get ahead of ourselves, we want to welcome you to <b>Car Vista</b>. We appreciate you
+        taking the time toady to visit our web site. </p>
       <div class="d-flex justify-content-end">
 <!--        <button type="button" class="btn btn-secondary btn-lg" style="width: 350px">Large button</button>-->
         <!--1️⃣ code CSS below -->
-
 
 
         <button type="button" class="btn" style="width: 250px;">See more Details...</button>
@@ -99,8 +404,8 @@
 
     </div>
 
-    <div class="img">
-      <img src="assest/tyler-clemmensen-d1Jum1vVLew-unsplash.jpg" class="img-fluid" alt="..." >
+    <div class="img fade-in-image">
+      <img src="assest/home_background.jpg" class="img-fluid home_bac" alt="..." >
     </div>
 
 
@@ -120,11 +425,11 @@
                         <section>
                             <div class="mb-3">
 
-                                <input class="form-control" id="txtLoginName" type="text" name="loginName" placeholder="Nic">
+                                <input class="form-control" id="txtCusLoginName" type="text" name="loginName" placeholder="Nic">
                             </div>
                             <div class="mb-3">
 
-                                <input class="form-control form-control-sm" id="txtLoginPassword" type="text" name="loginPassword" placeholder="Password">
+                                <input class="form-control form-control-sm" id="txtCusLoginPassword" type="text" name="loginPassword" placeholder="Password">
                             </div>
                             <div class="mb-3">
                                 <div class="col" id="colD">
@@ -132,7 +437,7 @@
                                 </div>
                             </div>
                             <div style="text-align: center">
-                                <button type="button" class="btn btn-primary btn btn-block mb-3" id="btnCustomerLogin" style="padding-left: 70px; padding-right: 70px"><a href="BookingDashboard.html">Log In</a></button>
+                                <button type="button" class=" btnLog btn-block mb-3" id="btnCustomerLogin" style="padding-left: 28px; padding-right: 28px"><a href=""><h5 style="color: white; line-height: 0.5;">Log In</h5></a></button>
                             </div>
 
                         </section>
@@ -166,10 +471,12 @@
                     <div class="modal-body">
                         <section>
                             <div class="mb-3">
-                                <input class="form-control" id="txtAdminId" type="text" name="cusID" placeholder="Nic">
+
+                                <input class="form-control" id="txtAdminLoginName" type="text" name="loginName" placeholder="Nic">
                             </div>
                             <div class="mb-3">
-                                <input class="form-control form-control-sm" id="txtAdminPassword" type="text" name="password" placeholder="Password">
+
+                                <input class="form-control form-control-sm" id="txtAdminLoginPassword" type="text" name="loginPassword" placeholder="Password">
                             </div>
                             <div class="mb-3">
                                 <div class="col" id="colA">
@@ -177,7 +484,7 @@
                                 </div>
                             </div>
                             <div style="text-align: center">
-                                <button type="button" class="btn btn-primary btn btn-block mb-3" style="padding-left: 70px; padding-right: 70px">Log In</button>
+                                <button type="button" class=" btnLog btn-block mb-3" id="btnAdminLogin" style="padding-left: 28px; padding-right: 28px"><a href=""><h5 style="color: white; line-height: 0.5;">Log In</h5></a></button>
                             </div>
 
                         </section>
@@ -185,100 +492,106 @@
                     <div class="modal-footer text-center">
                         <p>
                             "Not a member?"
-                            <a href="customerRegister.html">Register</a>
+                            <a href="AdminRegistraion.html">Register</a>
                         </p>
                         <p>or sign up with:</p>
-                        <button type="button" class="btn btn-link btn-floating mx-1"></button>
-                        <button type="button" class="btn btn-link btn-floating mx-1"></button>
-                        <button type="button" class="btn btn-link btn-floating mx-1"></button>
+                        <!--                        <button type="button" class="btn btn-link btn-floating mx-1"></button>-->
+                        <!--                        <button type="button" class="btn btn-link btn-floating mx-1"></button>-->
+                        <!--                        <button type="button" class="btn btn-link btn-floating mx-1"></button>-->
                     </div>
                 </div>
             </div>
         </div>
     </form>
 
-        <section class="gauto-about-area section_70">
-            <div class="line" style="width: 100%; height: 30px; background-color: lightskyblue"></div>
-            <div class="line" style="width: 100%; height: 30px; background-color: white"></div>
 
-            <div class="container"><div class="row">
-                <div class="col-lg-6">
-                    <div class="about-left">
-                    <h4>About Us</h4>
-                        <h2>Welcome to gauto</h2>
-                        <p>Since 1992 we have not only committed ourselves to delivering exceptional repair and maintenance service to the worldwide automotive owners.</p>
-                        <div class="about-list"><ul>
-                            <li><span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg></span>We are a trusted name</li>
-                            <li><span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg></span>we deal in have all brands</li>
-                            <li><span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg></span>have a larger stock of vehicles</li>
-                            <li><span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg></span>we are at worldwide locations</li></ul></div>
-                        <div class="about-signature"><div class="signature-left"><img src="assest/CamScanner 02-23-2023 12.29.jpg" width="35%" alt="signature"></div><div class="signature-right"><h3>Chathuri Imasha</h3><p>Owner</p></div></div></div></div><div class="col-lg-6"><div class="about-right">
-                <img src="assest/66815.jpg" alt="car" width="100%"></div></div></div></div></section>
+    <section class="gauto-about-area section_70" id="aboutUs">
+        <div class="line" style="width: 100%; height: 30px; background-color: lightskyblue"></div>
+        <div class="line" style="width: 100%; height: 30px; background-color: white"></div>
 
-    <footer>
-        <app-footer _ngcontent-txo-c1="" _nghost-txo-c14="">
-            <footer _ngcontent-txo-c14="" class="section-padding footer" style="background-color: #13263a" >
-            <div _ngcontent-txo-c14="" class="container" >
-                <div _ngcontent-txo-c14="" class="row">
-                    <div _ngcontent-txo-c14="" class="col-lg-4 col-md-6">
-                        <div _ngcontent-txo-c14="" class="footer-box mb-md-40">
-                            <h4 _ngcontent-txo-c14="" class="text-custom-white fw-600" style="color: white">About Us</h4>
-                            <p _ngcontent-txo-c14="" class="text-custom-white" style="color: white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.Lorem ipsum dolor sit amet... </p>
-                        </div>
-                    </div>
-                    <div _ngcontent-txo-c14="" class="col-lg-4 col-md-6">
-                        <div _ngcontent-txo-c14="" class="footer-box mb-md-40" >
-                            <h4 _ngcontent-txo-c14="" class="text-custom-white fw-600" style="color: white">About Us</h4>
-                            <ul _ngcontent-txo-c14="" class="m-0 p-0 main"  style="color: white">
-                                <li _ngcontent-txo-c14="" >1-567-124-44227</li>
-                                <li _ngcontent-txo-c14="">182 main street pert habour 8007</li>
-                                <li _ngcontent-txo-c14="">Mon-sat 8:00-18:00 Sunday Closed</li>
-                            </ul>
-                            <ul _ngcontent-txo-c14="" class="custom-flex socials">
-                                <li _ngcontent-txo-c14="">
-                                    <a _ngcontent-txo-c14="" class="text-custom-white fs-14" href="#">
-                                        <i _ngcontent-txo-c14="" class="fab fa-facebook-f"></i></a>
-                                </li>
-                                <li _ngcontent-txo-c14=""><a _ngcontent-txo-c14="" class="text-custom-white fs-14" href="#">
-                                    <i _ngcontent-txo-c14="" class="fab fa-twitter"></i></a>
-                                </li>
-                                <li _ngcontent-txo-c14=""><a _ngcontent-txo-c14="" class="text-custom-white fs-14" href="#">
-                                    <i _ngcontent-txo-c14="" class="fab fa-linkedin"></i></a>
-                                </li>
-                                <li _ngcontent-txo-c14=""><a _ngcontent-txo-c14="" class="text-custom-white fs-14" href="#">
-                                    <i _ngcontent-txo-c14="" class="fab fa-youtube"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div _ngcontent-txo-c14="" class="col-lg-4 col-md-6"><div _ngcontent-txo-c14="" class="footer-box mb-sm-40">
-                        <h4 _ngcontent-txo-c14="" class="text-custom-white fw-600" style="color: white">Newsletter</h4>
-                        <div _ngcontent-txo-c14="" class="newsletter">
-                            <p _ngcontent-txo-c14="" class="text-custom-white" style="color: white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-                            <form _ngcontent-txo-c14="">
-                                <div _ngcontent-txo-c14="" class="form-group">
-                                    <input _ngcontent-txo-c14="" class="form-control form-control-custom" name="#" placeholder="Email I'd" type="email">
-                                </div>
-                                <button _ngcontent-txo-c14="" class="btn-first btn-submits" type="submit">Subscribe</button>
-                            </form>
-                        </div>
-                    </div>
-                    </div>
-                </div>
+        <div class="container"><div class="row">
+            <div class="col-lg-6">
+                <div class="about-left">
+                <h4>About Us</h4>
+                    <h2 style="color: darkgreen">Welcome to CAR VISTA</h2>
+                    <p>Our cars are delivered fully-registered with all requirements completed. We lead with innovation in the car hire sector. High-quality customer service and seamless rental experience.</p>
+                    <div class="about-list"><ul>
+                        <li><span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg></span>We are a trusted name</li>
+                        <li><span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg></span>we deal in have all brands</li>
+                        <li><span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg></span>have a larger stock of vehicles</li>
+                        <li><span><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"></path></svg></span>we are at worldwide locations</li></ul></div>
+                    <div class="about-signature"><div class="signature-left"><img src="assest/CamScanner 02-23-2023 12.29.jpg" width="32%" alt="signature"></div><div class="signature-right"><h3>Chathuri Imasha</h3><p>Owner</p></div></div></div></div><div class="col-lg-6"><div class="about-right">
+
+            <img src="assest/about.png" class="car_1" alt="car" width="100%">
+
+        </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+
+            <h3 style="color: #2e4154">CarVista<span></span></h3>
+
+            <p class="footer-links">
+                <a href="#" class="link-1">Home</a>
+
+                <a href="#">Blog</a>
+
+                <a href="#">Pricing</a>
+
+                <a href="#">About</a>
+
+                <a href="#">Faq</a>
+
+                <a href="#">Contact</a>
+            </p>
+
+            <p class="footer-company-name">Car Vista © 2015</p>
+        </div>
+
+        <div class="footer-center">
+
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Imaduwa Road, Akuressa</span> Matara</p>
             </div>
-        </footer>
-            <div _ngcontent-txo-c14="" class="copyright" style="background-color: #ff4d4d">
-                <div _ngcontent-txo-c14="" class="container" >
-                <div _ngcontent-txo-c14="" class="row">
-                    <div _ngcontent-txo-c14="" class="col-12">
-                        <p _ngcontent-txo-c14="" class="text-custom-white">© Rumble - 2021 | All Right Reserved.
-                            <a _ngcontent-txo-c14="" class="text-custom-white" href="https://www.codezion.com/">Designed By codezion</a>
-                        </p>
-                    </div>
-                </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+94762387935</p>
             </div>
+
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:support@company.com">chathuriimasha60@gmail.com</a></p>
             </div>
-        </app-footer>
+
+        </div>
+
+        <div class="footer-right">
+
+            <p class="footer-company-about">
+                <span>About the company</span>
+                Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+            </p>
+
+            <div class="footer-icons">
+
+                <a href="#"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-github"></i></a>
+
+            </div>
+
+        </div>
+
     </footer>
+
 
 </main>
 
@@ -289,35 +602,46 @@
 
 <script>
 
-    $('#btnCustomerLogin').click(function (){
+    let baseUrl = "http://localhost:8080/Car_Rental_System_war/"
+
+    sessionStorage.setItem('customer', false)
+    sessionStorage.setItem('adminReg', false)
+
+    $('#btnCustomerLogin').click(async function (e){
+        e.preventDefault()
         alert("login btn");
 
-        let userName = $('#txtLoginName').val();
-        let password = $('#txtLoginPassword').val();
+        let userName = $('#txtCusLoginName').val();
+        let password = $('#txtCusLoginPassword').val();
+        console.log(userName,password)
 
-        let customer = findCustomerObj(userName);
-        console.log("customer Obj ")
-        console.log(customer);
+        let cus = await findCustomerObj(userName);
+        console.log("cus Obj ")
+        console.log(cus);
 
-        loggedCus=customer.nic;
-        console.log("logged cus"+ loggedCus);
+        // loggedCus=cus.nic;
+        // console.log("logged cus"+ loggedCus);
 
-        if (password==customer.password){
+        if (password===cus.password){
+            sessionStorage.setItem('customer', true)
             alert("Successfully logged");
+            window.location.href = "BookingDashboard.html"
         }
 
-        $('#profileCard').empty()
-        var profileCard = '<h4 class="card-title">' + customer.name +'</h4>\n' +
-            '                            <p class="mb-sm-1"><b>NIC:</b>' + customer.nic +'</p>\n' +
-            '                            <p class="mb-sm-1"><b>Address:</b>' + customer.address +'</p>\n' +
-            '                            <p class="mb-sm-1"><b>License :</b>' + customer.license +'</p>\n' +
-            '                            <p class="mb-sm-1"><b>Contact :</b>' + customer.contact +'</p>'
-
-        $('#profileCard').append(profileCard);
+        // $('#profileCard').empty()
+        // var profileCard = '<h4 class="card-title">' + cus.name +'</h4>\n' +
+        //     '                            <p class="mb-sm-1"><b>NIC:</b>' + cus.nic +'</p>\n' +
+        //     '                            <p class="mb-sm-1"><b>Address:</b>' + cus.address +'</p>\n' +
+        //     '                            <p class="mb-sm-1"><b>License :</b>' + cus.license +'</p>\n' +
+        //     '                            <p class="mb-sm-1"><b>Contact :</b>' + cus.contact +'</p>'
+        //
+        // $('#profileCard').append(profileCard);
     });
-
+    //
+    //
+    //
     function findCustomerObj(userName){
-        alert("find cus Obj")
+        // alert("find cus Obj")
 
         let response="";
         $.ajax({
@@ -326,24 +650,63 @@
             async:false,
             success:function (res) {
                 console.log("success : "+userName);
-                res.data.filter((c)=>{
-
-                    console.log("username :"+c.nic);
-                    console.log("password :"+c.password);
-                    console.log("password :"+c.name);
-
-                    if (c.nic==userName){
-                        response= c;
-                    }
-
-                    console.log(response);
-
-                });
+                if(res.data.nic===userName){
+                    response= res.data;
+                }
 
             }
         })
         return response;
     }
+
+    // $('#carBooking').click(function () {
+    //     if(customer){
+    //         window.location.href = "BookingDashboard.html"
+    //     }
+    // })
+
+    $('#btnAdminLogin').click(async function (e){
+        e.preventDefault()
+        alert("login btn");
+
+        let adminName = $('#txtAdminLoginName').val();
+        let adminPassword = $('#txtAdminLoginPassword').val();
+        console.log(adminName,adminPassword)
+
+        let admin = await findAdminObj(adminName);
+        console.log("admin Obj ")
+        console.log(admin);
+
+        // loggedCus=cus.nic;
+        // console.log("logged cus"+ loggedCus);
+
+        if (adminPassword===admin.password){
+            sessionStorage.setItem('adminReg', true)
+            alert("Successfully logged");
+            window.location.href = "adminDashboard.html"
+        }
+    });
+
+
+    function findAdminObj(adminName){
+        // alert("find cus Obj")
+
+        let response="";
+        $.ajax({
+            url: baseUrl+"adminReg?nic="+adminName,
+            dataType:"json",
+            async:false,
+            success:function (res) {
+                console.log("success : "+ adminName);
+                if(res.data.nic===adminName){
+                    response= res.data;
+                }
+
+            }
+        })
+        return response;
+    }
+
 
 </script>
 

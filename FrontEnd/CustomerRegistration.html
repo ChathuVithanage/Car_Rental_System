@@ -14,7 +14,7 @@
       height: 712px;
       background-size: cover;
       background-repeat: no-repeat;
-      opacity: 78%;
+      opacity: 90%;
     }
 
     .table{
@@ -24,9 +24,35 @@
       left: 29%;
     }
 
+
+    .nav-link h5:hover{
+      color: firebrick;
+    }
+
   </style>
 </head>
 <body>
+
+<header class="sticky-top">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary " style="background-color: #2c3945; height: 55px; ">
+    <img src="assest/classic-car.png" class="logo" style="width: 90px">
+    <label style="width: 96px"><h5 style="color: yellow; text-shadow: 1px 1px 2px wheat, 0 0 25px white, 0 0 5px white;">Car Vista</h5></label>
+
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"></a>
+
+      <div class="nav justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active fw-bold" aria-current="page" href="index.html" style=" padding-left: 18px; padding-right: 25px; color: white"><h5>Home</h5></a>
+          <a class="nav-link fw-bold" href="" style=" padding-left: 18px; padding-right: 25px; color: white"><h5>Car</h5></a>
+          <a class="nav-link fw-bold" href="index.html#aboutUs" style="padding-left: 18px; padding-right: 25px; color: white"><h5>About Us</h5></a>
+
+        </div>
+      </div>
+
+    </div>
+  </nav>
+</header>
 
 <section id="customer_Registration"  >
   <div class="modal-dialog">
@@ -122,6 +148,7 @@
       success:function (res){
         alert("save data");
         LoadAllCustomer();
+        clearTextFields();
       }
 
     })
@@ -130,26 +157,29 @@
   $("#searchCustomer").click(function (){
 
     $.ajax({
-      url:baseUrl+"customer?NIC=" + $("#txtCustomerId").val(),
+      url:baseUrl+"customer?nic=" + $("#txtCustomerId").val(),
       dataType:"json",
       method: "get",
       success:function (res){
         $("#txtCustomerName").val(res.data.name)
         $("#txtCustomerAddress").val(res.data.address)
         $("#txtCustomerPassword").val(res.data.password)
-        $("#txtCustomerContactNum").val(res.data.Contact)
+        $("#txtCustomerContactNum").val(res.data.contact)
         $("#txtCustomerLicence").val(res.data.license)
       }
     })
   });
+
   $('#CustomerDelete').click(function (){
    alert($("#txtCustomerId").val())
     $.ajax({
-      url:baseUerlD+"customer?nic=" + $("#txtCustomerId").val(),
+      url:baseUrl+"customer?nic=" + $("#txtCustomerId").val(),
       dataType: "json",
       method:"delete",
       success:function (res){
         alert(res.message);
+        clearTextFields();
+        LoadAllCustomer();
       },
       error:function (error){
 
@@ -157,17 +187,19 @@
     })
   });
   LoadAllCustomer();
+
   function LoadAllCustomer(){
     $.ajax({
       url:baseUrl+"customer",
       success:function (res){
         $('.Customertable').empty();
         for(let i=0;i<res.data.length;i++){
-          $('.Customertable').append(`<tr><td>`+res.data[i].nic +`</td><td>`+res.data[i].license+`</td><td>`+res.data[i].name+`</td><td>`+res.data[i].address+`</td><td>`+res.data[i].Contact+`</td></tr>`)
+          $('.Customertable').append(`<tr><td>`+res.data[i].nic +`</td><td>`+res.data[i].license+`</td><td>`+res.data[i].name+`</td><td>`+res.data[i].address+`</td><td>`+res.data[i].contact+`</td></tr>`)
         }
       }
     })
   };
+
   $('#CustomerUpdate').click(function (){
     let customerJson={
       nic:$('#txtCustomerId').val(),
@@ -187,9 +219,16 @@
       success:function (){
          alert('update');
         LoadAllCustomer();
+        clearTextFields();
       }
     })
   });
+
+  function clearTextFields(){
+    //$("#carAdd").find(":input")
+    $("form#CusRegister :input").val('')
+
+  }
 
 </script>
 

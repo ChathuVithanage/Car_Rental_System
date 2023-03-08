@@ -152,7 +152,7 @@
       success:function (res){
         $('.adminTable').empty();
         for(let i=0;i<res.data.length;i++){
-          $('.adminTable').append(`<tr><td>`+res.data[i].nic +`</td><td>`+res.data[i].name+`</td><td>`+res.data[i].username+`</td><td>`+res.data[i].password+`</td><td>`+res.data[i].email+`</td></tr>`)
+          $('.adminTable').append(`<tr><td>`+res.data[i].nic +`</td><td>`+res.data[i].name+`</td><td>`+res.data[i].userName+`</td><td>`+res.data[i].password+`</td><td>`+res.data[i].email+`</td></tr>`)
         }
       }
     })

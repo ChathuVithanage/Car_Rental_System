@@ -65,9 +65,10 @@ public class BookingController {
     public ResponseUtil countAllBooking(){
         return new ResponseUtil("ok","count",service.countBooking());
     }
+
     @GetMapping(params = {"bookingID"})
     public ResponseUtil findbookings(String bookingID){
-        System.out.println("jjjjjj"+bookingID);
+       // System.out.println("jjjjjj"+bookingID);
         return new ResponseUtil("ok","find",service.findBookingbookingID(bookingID));
     }
 }

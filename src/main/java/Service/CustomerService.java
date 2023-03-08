@@ -9,6 +9,6 @@ public interface CustomerService {
     /*public void deleteCustomer(String NIC);*/
     public void updateCustomer(CustomerDTO dto);
     public ArrayList<CustomerDTO> getAllCustomers();
-    void DeleteCustomer(String NIC);
-    public CustomerDTO searchCustomerWithNIC(String NIC);
+    void DeleteCustomer(String nic);
+    public CustomerDTO searchCustomerWithNIC(String nic);
 }

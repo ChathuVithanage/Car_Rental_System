@@ -33,7 +33,8 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public void saveBooking(BookingDTO dto) {
-
+        String s = generateBookingId();
+        dto.setBookingID(s);
     }
 
     @Override

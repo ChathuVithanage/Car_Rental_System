@@ -48,8 +48,9 @@ public class CustomerController {
         return new ResponseUtil("OK","Successfully Loaded. :" ,service.searchCustomerWithNIC(nic));
     }*/
 
-    @GetMapping(params = {"NIC"})
-    public ResponseUtil searchCustomerByNIC(String NIC){
-        return new ResponseUtil("OK","Successfully Loaded. :" ,service.searchCustomerWithNIC(NIC));
+    @GetMapping(params = {"nic"})
+    public ResponseUtil searchCustomerByNIC(String nic){
+        System.out.println("search");
+        return new ResponseUtil("OK","Successfully Loaded. :" ,service.searchCustomerWithNIC(nic));
     }
 }
